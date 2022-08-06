@@ -1,5 +1,5 @@
-import { marked } from "marked";
+import { marked } from 'marked'
 
-export default async function markdownToHtml(markdown: string) {
-  return marked.parse(markdown);
+export const markdownToHtml = async (markdown: string) => {
+  return marked.parse(markdown)
 }

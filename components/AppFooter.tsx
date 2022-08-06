@@ -1,9 +1,9 @@
-import React from "react";
-import { Card, Text } from "@mantine/core";
-import { Footer } from "@mantine/core";
-import Link from "next/link";
-import Image from "next/image";
-import dt from "@/public/dt.jpg";
+import React from 'react'
+import { Card, Text } from '@mantine/core'
+import { Footer } from '@mantine/core'
+import Link from 'next/link'
+import Image from 'next/image'
+import dt from '@/public/dt.jpg'
 const AppFooter = () => {
   return (
     <Footer className="relative" height={300} p="sm">
@@ -24,7 +24,7 @@ const AppFooter = () => {
             <div className="text-center">
               <h3 className="mb-5">文档</h3>
               <ul className="flex flex-col space-y-2">
-                <Link href="/documents">
+                <Link href="/documents/快速开始">
                   <a>快速开始</a>
                 </Link>
               </ul>
@@ -32,9 +32,15 @@ const AppFooter = () => {
             <div className="text-center">
               <h3 className="mb-5">社区</h3>
               <ul className="flex flex-col space-y-2">
-                <a href="https://github.com/DTStack/chunjun/issues">Issue Tracker</a>
-                <a href="https://github.com/DTStack/chunjun/pulls">Pull Requests</a>
-                <a href="https://github.com/DTStack/chunjun/discussions">Discussions</a>
+                <a href="https://github.com/DTStack/chunjun/issues">
+                  Issue Tracker
+                </a>
+                <a href="https://github.com/DTStack/chunjun/pulls">
+                  Pull Requests
+                </a>
+                <a href="https://github.com/DTStack/chunjun/discussions">
+                  Discussions
+                </a>
               </ul>
             </div>
             <div className="text-center">
@@ -49,9 +55,12 @@ const AppFooter = () => {
           </div>
         </div>
       </div>
-      <div className="py-4 text-gray-600 text-base flex justify-center items-center text-center">Apache LICENSE 2.0 Licensed, Copyright 2018-2022 Chunjun All Rights Reserved</div>
+      <div className="py-4 text-gray-600 text-base flex justify-center items-center text-center">
+        Apache LICENSE 2.0 Licensed, Copyright 2018-2022 Chunjun All Rights
+        Reserved
+      </div>
     </Footer>
-  );
-};
+  )
+}
 
-export default AppFooter;
+export default AppFooter

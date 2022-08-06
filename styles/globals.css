@@ -4,6 +4,23 @@
 @tailwind utilities;
 
 @layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100px;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background-color: #eee;
+    border-radius: 100px;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    /* background-color: #dfe6e9; */
+    background-color: #dfe6e9;
+  }
 }
 
 @layer components {

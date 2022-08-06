@@ -1,21 +1,21 @@
-import { TypographyStylesProvider } from "@mantine/core";
+import { TypographyStylesProvider } from '@mantine/core'
 type Props = {
-  content: string;
-};
+  content: string
+}
 
 const PostBody = (props: Props) => {
-  const { content } = props;
+  const { content } = props
 
   return (
     <TypographyStylesProvider
       styles={{
-        li: { padding: 0 },
+        li: { padding: 0 }
       }}
-      className="md:col-span-4"
+      className="md:col-span-3"
     >
       <div dangerouslySetInnerHTML={{ __html: content }}></div>
     </TypographyStylesProvider>
-  );
-};
+  )
+}
 
-export default PostBody;
+export default PostBody
