@@ -1,5 +1,5 @@
 // import GenerateSider from "@/common/generate-sider";
-import { ReactNode, useEffect, useState } from 'react'
+import { ReactNode } from 'react'
 import { NavLink, useMantineColorScheme } from '@mantine/core'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
@@ -8,78 +8,13 @@ import FileTree from '@/types/FileTree'
 type Props = {
   children: ReactNode
   target: string
-  allPaths: string[]
+  tree: FileTree[]
 }
 
 const DocumentLike = (props: Props) => {
-  const { children, target, allPaths } = props
+  const { children, target, tree } = props
 
-  const [treeNode, setTreeNode] = useState<FileTree[]>([])
   const { colorScheme } = useMantineColorScheme()
-
-  useEffect(() => {
-    const map = new Map<string, boolean>()
-
-    const tree: FileTree[] = []
-
-    const generate = (path: string, obj: FileTree[]): FileTree[] => {
-      if (!path.includes('/')) {
-        obj.push({
-          label: path.split('.')[0],
-          path: path.split('.')[0],
-          category: 'file'
-        })
-      } else {
-        const t = path.split('/')[0]
-        const f = obj.find((o) => o.label === t)
-        const current = path.split('/').slice(1).join('/')
-        if (!f) {
-          obj.push({
-            label: path.split('/')[0],
-            category: 'dir',
-            children: []
-          })
-          return generate(
-            current,
-            obj.find((o) => o.label === t)?.children as FileTree[]
-          )
-        } else {
-          return generate(current, f?.children as FileTree[])
-        }
-      }
-      return obj
-    }
-
-    for (const link of allPaths) {
-      if (!link.includes('/')) {
-        tree.push({
-          label: link.split('.')[0],
-          category: 'file'
-        })
-        continue
-      }
-      map.set(link.split('/')[0], true)
-    }
-
-    for (const m of map) {
-      const root: FileTree = {
-        label: m[0],
-        children: [],
-        category: 'dir'
-      }
-      for (const link of allPaths) {
-        if (link.split('/')[0] === root.label) {
-          generate(
-            link.split('/').slice(1).join('/'),
-            root.children as FileTree[]
-          )
-        }
-      }
-      tree.push(root)
-    }
-
-    setTreeNode(tree)
-  }, [])
 
   const router = useRouter()
 
@@ -123,7 +58,7 @@ const DocumentLike = (props: Props) => {
           colorScheme === 'light' ? 'bg-white' : 'bg-[#333]'
         }`}
       >
-        {treeNode.map((l) => generateNavLink(l, l.label))}
+        {tree.map((l) => generateNavLink(l, l.label))}
       </aside>
       <section className="grid md:grid-cols-4 grid-cols-1 p-4">
         {children}
