@@ -9,6 +9,7 @@ specifiers:
   '@types/node': 18.0.6
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
+  '@types/uuid': ^8.3.4
   autoprefixer: ^10.4.7
   eslint: 8.20.0
   eslint-config-next: 12.2.3
@@ -22,12 +23,14 @@ specifiers:
   tabler-icons-react: ^1.53.0
   tailwindcss: ^3.1.6
   typescript: 4.7.4
+  uuid: ^8.3.2
 
 dependencies:
   '@emotion/react': registry.npmmirror.com/@emotion/react/11.9.3_3hx2ussxxho4jajbwrd6gq34qe
   '@mantine/core': registry.npmmirror.com/@mantine/core/5.0.0_of3avfhfsphj3pj23xp4l6lqty
   '@mantine/hooks': registry.npmmirror.com/@mantine/hooks/5.0.0_react@18.2.0
   '@mantine/next': registry.npmmirror.com/@mantine/next/5.0.0_s6cx5yeli56vzhh6xrdqywu4xu
+  '@types/uuid': registry.npmmirror.com/@types/uuid/8.3.4
   gray-matter: registry.npmmirror.com/gray-matter/4.0.3
   i18n-next: registry.npmmirror.com/i18n-next/0.0.4
   marked: registry.npmmirror.com/marked/4.0.18
@@ -35,6 +38,7 @@ dependencies:
   react: registry.npmmirror.com/react/18.2.0
   react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
   tabler-icons-react: registry.npmmirror.com/tabler-icons-react/1.53.0_react@18.2.0
+  uuid: registry.npmmirror.com/uuid/8.3.2
 
 devDependencies:
   '@types/marked': registry.npmmirror.com/@types/marked/4.0.3
@@ -821,6 +825,12 @@ packages:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/scheduler/-/scheduler-0.16.2.tgz}
     name: '@types/scheduler'
     version: 0.16.2
+
+  registry.npmmirror.com/@types/uuid/8.3.4:
+    resolution: {integrity: sha512-c/I8ZRb51j+pYGAu5CrFMRxqZ2ke4y2grEBO5AUjgSkSk+qT2Ea+OdWElz/OiMf5MNpn2b17kuVBwZLQJXzihw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/uuid/-/uuid-8.3.4.tgz}
+    name: '@types/uuid'
+    version: 8.3.4
+    dev: false
 
   registry.npmmirror.com/@typescript-eslint/parser/5.30.7_he2ccbldppg44uulnyq4rwocfa:
     resolution: {integrity: sha512-Rg5xwznHWWSy7v2o0cdho6n+xLhK2gntImp0rJroVVFkcYFYQ8C8UJTSuTw/3CnExBmPjycjmUJkxVmjXsld6A==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@typescript-eslint/parser/-/parser-5.30.7.tgz}
@@ -3874,6 +3884,13 @@ packages:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/util-deprecate/-/util-deprecate-1.0.2.tgz}
     name: util-deprecate
     version: 1.0.2
+
+  registry.npmmirror.com/uuid/8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/uuid/-/uuid-8.3.2.tgz}
+    name: uuid
+    version: 8.3.2
+    hasBin: true
+    dev: false
 
   registry.npmmirror.com/v8-compile-cache/2.3.0:
     resolution: {integrity: sha512-l8lCEmLcLYZh4nbunNZvQCJc5pv7+RCwa8q/LdUx8u7lsWvPDKmpodJAJNwkAhJC//dFY48KuIEmjtd4RViDrA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz}
