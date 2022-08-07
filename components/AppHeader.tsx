@@ -5,6 +5,8 @@ import logo from "@/public/logo-dark.svg";
 import { headerLinks } from "@/config/headerLinks";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import { primaryColor } from "@/config/color";
 
 type Props = {
   theme: ColorScheme;
@@ -16,47 +18,33 @@ type Props = {
 const AppHeader = (props: Props) => {
   const { theme, changeTheme, opened, changeOpened } = props;
   const router = useRouter();
+  const [activeKey, setActiveKey] = useState('home')
 
   return (
-    <Header p={"sm"} height={64} className="flex items-center justify-between sticky">
+    <Header height={64} className="flex items-center justify-between sticky">
       <Burger opened={opened} onClick={changeOpened} className="md:hidden inline-block" />
       <div className="h-full flex items-center cursor-pointer" onClick={() => router.push("/")}>
-        <Image src={logo} height={36} width={36} alt="logo of chunjun"></Image>
-        <Text className="text-xl font-bold capitalize flex items-center font-mono">Chunjun</Text>
-      </div>
-      <div className="h-full flex items-center space-x-4">
-        {headerLinks.map((l) => {
-          if (!Array.isArray(l.path) && l.path.includes("http")) {
-            return (
-              <a href={l.path} target="blank" key={l.key} className="capitalize hidden md:inline-block">
-                {l.name}
-              </a>
-            );
-          } else if (Array.isArray(l.path)) {
-            return (
-              <Menu shadow="md" width={100} position="bottom" key={l.key} trigger="hover">
-                <Menu.Target>
-                  <Text className="cursor-pointer hidden md:inline-block">{l.name}</Text>
-                </Menu.Target>
-                <Menu.Dropdown>
-                  {l.path.map((p) => (
-                    <Menu.Item key={p.key}>
-                      <Link href={p.path as string}>
-                        <a className="text-sm text-center uppercase w-full">{p.name}案例</a>
-                      </Link>
-                    </Menu.Item>
-                  ))}
-                </Menu.Dropdown>
-              </Menu>
-            );
-          } else {
-            return (
-              <Link href={l.path} key={l.key}>
-                <a className="capitalize hidden md:inline-block">{l.name}</a>
-              </Link>
-            );
+        <div className="flex px-[30px]">
+          <Image src={logo} height={36} width={36} alt="logo of chunjun"></Image>
+          <Text className="text-xl font-bold capitalize flex items-center ">Chunjun</Text>
+        </div>
+
+        <div className="h-full flex">
+          {
+            headerLinks.map(item => {
+              return <div style={{
+                borderColor: activeKey === item.key ? primaryColor.toString() : '',
+                borderBottomWidth: activeKey === item.key ? 2 : 0
+              }} className={`w-[100px] flex justify-center items-center h-full    text-gray-400 cursor-pointer`}>
+                <Link href={item.path as string}>{item.name}</Link>
+              </div>
+            })
           }
-        })}
+        </div>
+      </div>
+
+      <div className="h-full flex items-center space-x-4 pr-[9px]">
+
         <Menu shadow="md" width={100} trigger="hover" openDelay={100} closeDelay={200} position="bottom">
           <Menu.Target>
             <ActionIcon variant="transparent">
