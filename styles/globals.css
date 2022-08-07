@@ -21,6 +21,10 @@
     /* background-color: #dfe6e9; */
     background-color: #dfe6e9;
   }
+
+  .font-raleway {
+    font-family: 'Raleway', sans-serif;
+  }
 }
 
 @layer components {

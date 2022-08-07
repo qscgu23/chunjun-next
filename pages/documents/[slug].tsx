@@ -5,13 +5,22 @@ import { Skeleton } from '@mantine/core'
 import { useRouter } from 'next/router'
 import DocumentLike from '@/common/document-like'
 import FileTree from '@/types/FileTree'
+import Toc from '@/types/Toc'
 
 const SEP = process.env.sep as string
 
-const Post = ({ content, tree }: { content: string; tree: FileTree[] }) => {
+const Post = ({
+  content,
+  tree,
+  toc
+}: {
+  content: string
+  tree: FileTree[]
+  toc: Toc[]
+}) => {
   const router = useRouter()
   return (
-    <DocumentLike tree={tree} target="/documents">
+    <DocumentLike tree={tree} target="/documents" toc={toc}>
       {router.isFallback ? (
         <Skeleton visible className="md:col-span-4" />
       ) : (
@@ -45,7 +54,7 @@ type Params = {
 
 export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, ['slug', 'content'])
-  const content = await markdownToHtml(post.content || '')
+  const { content, toc } = await markdownToHtml(post.content || '')
   const allPaths = getAllPaths()
 
   const map = new Map<string, boolean>()
@@ -110,7 +119,8 @@ export async function getStaticProps({ params }: Params) {
   return {
     props: {
       content,
-      tree
+      tree,
+      toc
     }
   }
 }

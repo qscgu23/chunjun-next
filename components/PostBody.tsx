@@ -7,12 +7,7 @@ const PostBody = (props: Props) => {
   const { content } = props
 
   return (
-    <TypographyStylesProvider
-      styles={{
-        li: { padding: 0 }
-      }}
-      className="md:col-span-3"
-    >
+    <TypographyStylesProvider className="md:col-span-3">
       <div dangerouslySetInnerHTML={{ __html: content }}></div>
     </TypographyStylesProvider>
   )

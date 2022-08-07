@@ -1,18 +1,20 @@
-// import GenerateSider from "@/common/generate-sider";
+import TableOfContent from '@/components/TableOfContent'
 import { ReactNode } from 'react'
 import { NavLink, useMantineColorScheme } from '@mantine/core'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import FileTree from '@/types/FileTree'
+import Toc from '@/types/Toc'
 
 type Props = {
   children: ReactNode
   target: string
   tree: FileTree[]
+  toc: Toc[]
 }
 
 const DocumentLike = (props: Props) => {
-  const { children, target, tree } = props
+  const { children, target, tree, toc } = props
 
   const { colorScheme } = useMantineColorScheme()
 
@@ -62,6 +64,7 @@ const DocumentLike = (props: Props) => {
       </aside>
       <section className="grid md:grid-cols-4 grid-cols-1 p-4">
         {children}
+        <TableOfContent toc={toc} />
       </section>
     </main>
   )
