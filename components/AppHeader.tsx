@@ -15,8 +15,6 @@ type Props = {
   changeOpened: () => void;
 };
 
-
-
 const AppHeader = (props: Props) => {
   const { theme, changeTheme, opened, changeOpened } = props;
   const router = useRouter();

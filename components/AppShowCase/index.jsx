@@ -17,20 +17,22 @@ const AppShowCase = () => {
         color: primaryColor.toString()
       }}></People>
       Become a contributor to Chunjun</h1>
-    <div className="grid md:grid-cols-6 gap-2 rounded-md grid-cols-2 border p-[30px]"
+    <div className=" grid md:grid-cols-6 gap-2 rounded-md grid-cols-2 border p-[30px]"
       style={{
         borderColor: primaryColor.darken(0.1).toString(),
         color: primaryColor.darken(0.5).toString(),
+        backgroundColor: primaryColor.lighten(0.3).alpha(0.2).toString()
       }}>
-      {members.map(item => <div key={item.id} className="    flex items-center justify-between m-sm hover:bg-gray-50  hover:shadow-md transition-all duration-100">
-        <img
-          width={40}
-          height={40}
-          src={`https://github.com/${item.login}.png?size=40`}
-          alt=""
-        />{' '}
-        <a href={item.html_url} target="blank" className='flex-1 text-center'>
-          <span className="font-mono text-sm"> {item.login} </span>
+      {members.map(item => <div key={item.id} >
+
+        <a href={item.html_url} target="blank" className='flex items-center  m-sm   hover:underline transition-all duration-100 flex-1 text-center'>
+          <img
+            width={40}
+            height={40}
+            src={`https://github.com/${item.login}.png?size=40`}
+            alt=""
+            className='mr-1'
+          /> <span className="font-mono text-sm"> {item.login} </span>
         </a>
       </div>)}
     </div>
