@@ -28,7 +28,7 @@ const AppMedium = () => {
             兼容Flink SQL语法,如果您使用过Flink,那么您可以很快的上手chunjun!
           </Text>
 
-          <Button variant="light" color="green" fullWidth className='mt-[14px]'>
+          <Button variant="light" color="green" fullWidth className='underline mt-[14px]'>
             阅读我们的文档
           </Button>
         </Card>
@@ -47,7 +47,7 @@ const AppMedium = () => {
             支持Docker一键部署、K8S 部署运行,在您所青睐的平台上部署chunjun应用。
           </Text>
 
-          <Button variant="light" color="blue" fullWidth className='mt-[14px]'>
+          <Button variant="light" color="blue" fullWidth className='mt-[14px] underline'>
             开始了解如何部署
           </Button>
         </Card>
@@ -66,7 +66,7 @@ const AppMedium = () => {
             插件开发者无需关心其他插件的代码逻辑，新拓展的数据源插件可以与现有数据源插件即时互通。
           </Text>
 
-          <Button variant="light" color="violet" fullWidth className='mt-[14px]'>
+          <Button variant="light" color="violet" fullWidth className='underline mt-[14px]'>
             了解更多
           </Button>
         </Card>

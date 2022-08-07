@@ -24,7 +24,7 @@ const AppBanner = () => {
         </p>
         <div className="flex items-center mt-[30px]">
           <a
-            className="border-2  py-[10px] px-[20px] mr-4 text-base flex items-center xl:text-2xl"
+            className="border-2 rounded-md shadow-md py-[10px] px-[20px] mr-4 text-base flex items-center xl:text-2xl"
             rel="noreferrer"
             style={{
               color: primaryColor.darken(0.1).toString(),
@@ -38,7 +38,7 @@ const AppBanner = () => {
           </a>
           <a
             to="/documents"
-            className="border cursor-pointer text-white py-[10px] px-[20px] text-base xl:text-2xl"
+            className="border rounded-md shadow-md cursor-pointer text-white py-[10px] px-[20px] text-base xl:text-2xl"
             style={{
               background: primaryColor.darken(0.2).toString()
             }}

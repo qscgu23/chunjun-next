@@ -1,8 +1,11 @@
-type headerLink = {
+import { FC } from "react"
+
+export type headerLink = {
   name: string
   path: string | headerLink[]
   key: string
 }
+ 
 export const headerLinks: headerLink[] = [
   {
     name: '首页',
@@ -15,24 +18,24 @@ export const headerLinks: headerLink[] = [
     key: 'documents'
   },
   {
+    name: '下载',
+    path: 'https://github.com/DTStack/chunjun/releases',
+    key: 'download'
+  },
+  {
     name: '案例',
     path: [
       {
-        name: 'sql',
+        name: 'sql案例',
         path: '/examples/sql',
         key: 'sql'
       },
       {
-        name: 'json',
+        name: 'json案例',
         path: '/examples/json',
         key: 'json'
       }
     ],
     key: 'examples'
-  },
-  {
-    name: '下载',
-    path: 'https://github.com/DTStack/chunjun/releases',
-    key: 'download'
   }
 ]

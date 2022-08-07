@@ -2,10 +2,10 @@ import { Header, ActionIcon, ColorScheme, Text, Menu, Burger } from "@mantine/co
 import { Sun, Moon, Language } from "tabler-icons-react";
 import Image from "next/image";
 import logo from "@/public/logo-dark.svg";
-import { headerLinks } from "@/config/headerLinks";
+import { headerLink, headerLinks } from "@/config/headerLinks";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { FC, useState } from "react";
 import { primaryColor } from "@/config/color";
 
 type Props = {
@@ -15,10 +15,44 @@ type Props = {
   changeOpened: () => void;
 };
 
+
+
 const AppHeader = (props: Props) => {
   const { theme, changeTheme, opened, changeOpened } = props;
   const router = useRouter();
   const [activeKey, setActiveKey] = useState('home')
+  type menutype = {
+    item: headerLink
+  }
+  const MenuItem: FC<menutype> = ({ item }) => {
+    return <div style={{
+      borderColor: activeKey === item.key ? primaryColor.toString() : '',
+      borderBottomWidth: activeKey === item.key ? 2 : 0
+    }} className={`w-[100px] flex justify-center items-center h-full    text-gray-400 cursor-pointer hover:text-black hover:bg-gray-100/50`}>
+      <Link href={item.path as string}>{item.name}</Link>
+    </div>
+  }
+  const ComplexMenuItem: FC<menutype> = ({ item }) => {
+    const pathlist = item.path as headerLink[]
+
+    return <div className="flex border-l border-r">
+      <div className="flex items-center">
+        {pathlist.map((item, index) => {
+          return <>
+            <div style={{
+              borderColor: activeKey === item.key ? primaryColor.toString() : '',
+              borderBottomWidth: activeKey === item.key ? 2 : 0
+            }} className={` hover:text-black hover:bg-gray-100/50 w-[70px] text-[12px]  flex justify-center items-center h-full    text-gray-400 cursor-pointer`}>
+              <Link href={item.path as string}>{item.name}</Link>
+            </div>
+            {(index !== pathlist.length - 1) && <div className="h-[50%] bg-gray-100 w-[1px]">
+
+            </div>}
+          </>
+        })}
+      </div>
+    </div>
+  }
 
   return (
     <Header height={64} className="flex items-center justify-between sticky">
@@ -31,15 +65,17 @@ const AppHeader = (props: Props) => {
 
         <div className="h-full flex">
           {
-            headerLinks.map(item => {
-              return <div style={{
-                borderColor: activeKey === item.key ? primaryColor.toString() : '',
-                borderBottomWidth: activeKey === item.key ? 2 : 0
-              }} className={`w-[100px] flex justify-center items-center h-full    text-gray-400 cursor-pointer`}>
-                <Link href={item.path as string}>{item.name}</Link>
-              </div>
+            headerLinks.map((item: headerLink) => {
+              return <>
+                {typeof item.path === 'string' ? <MenuItem item={item}>
+
+                </MenuItem> : <ComplexMenuItem item={item}>
+
+                </ComplexMenuItem>}
+              </>
             })
           }
+
         </div>
       </div>
 
