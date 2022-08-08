@@ -4,27 +4,30 @@ import matter from 'gray-matter'
 import Items from '@/types/Item'
 
 //获取环境变量
-const ROOT_ZH = process.env.root_zh as string
 const SEP = process.env.sep as string
+const ROOT_ZH = process.env.root_zh as string
 
 const postsDirectory = join(process.cwd(), ROOT_ZH)
 
-export const getAllPaths = (root = ROOT_ZH, markdownFiles: string[] = []) => {
+// 读取文件
+export const getAllPaths = (root = ROOT_ZH, allFiles: string[] = []) => {
   const currentDir = join(process.cwd(), root)
+
   const files = fs.readdirSync(currentDir)
 
   for (const file of files) {
     if (file.includes('.md')) {
-      markdownFiles.push(
+      allFiles.push(
         root === ROOT_ZH
           ? file
           : `${root.split('/').slice(2).join('/')}/${file}`
       )
     } else {
-      getAllPaths(`${root}/${file}`, markdownFiles)
+      getAllPaths(`${root}/${file}`, allFiles)
     }
   }
-  return markdownFiles
+
+  return allFiles.filter((file) => file.includes('.md'))
 }
 
 export function getPostBySlug(slug: string, fields: string[] = []) {
@@ -34,7 +37,6 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
   const { data, content } = matter(fileContents)
   const items: Items = {}
 
-  // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
     if (field === 'slug') {
       items[field] = realSlug
@@ -52,9 +54,7 @@ export function getPostBySlug(slug: string, fields: string[] = []) {
 
 export function getAllPosts(fields: string[] = []) {
   const slugs = getAllPaths()
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1))
+  const posts = slugs.map((slug) => getPostBySlug(slug, fields))
+
   return posts
 }

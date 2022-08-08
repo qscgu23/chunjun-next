@@ -6,11 +6,13 @@ import Link from 'next/link'
 import FileTree from '@/types/FileTree'
 import Toc from '@/types/Toc'
 
+const SEP = process.env.sep as string
+
 type Props = {
   children: ReactNode
   target: string
   tree: FileTree[]
-  toc: Toc[]
+  toc?: Toc[]
 }
 
 const DocumentLike = (props: Props) => {
@@ -47,7 +49,9 @@ const DocumentLike = (props: Props) => {
             body: 'py-2'
           }}
         >
-          {t.children?.map((p) => generateNavLink(p, `${href}_${p.label}`))}
+          {t.children?.map((p) =>
+            generateNavLink(p, `${href}${SEP}${p.label}`)
+          )}
         </NavLink>
       )
     }
@@ -62,9 +66,9 @@ const DocumentLike = (props: Props) => {
       >
         {tree.map((l) => generateNavLink(l, l.label))}
       </aside>
-      <section className="grid md:grid-cols-4 grid-cols-1 p-4">
+      <section className="grid md:grid-cols-4 grid-cols-1">
         {children}
-        <TableOfContent toc={toc} />
+        {toc && <TableOfContent toc={toc} />}
       </section>
     </main>
   )

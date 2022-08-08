@@ -1,3 +1,4 @@
+const SEP = process.env.sep as string
 type headerLink = {
   name: string
   path: string | headerLink[]
@@ -19,12 +20,12 @@ export const headerLinks: headerLink[] = [
     path: [
       {
         name: 'sql',
-        path: '/examples/sql',
+        path: `/examples/sql/binlog${SEP}binlog_stream`,
         key: 'sql'
       },
       {
         name: 'json',
-        path: '/examples/json',
+        path: `/examples/json/binlog${SEP}binlog_hive`,
         key: 'json'
       }
     ],

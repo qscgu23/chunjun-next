@@ -1,11 +1,13 @@
 import PostBody from '@/components/PostBody'
 import { markdownToHtml } from '@/utils/markdown2html'
-import { getAllPosts, getPostBySlug, getAllPaths } from '@/api/api'
+import { getAllPosts, getPostBySlug, getAllPaths } from '@/api/post-api'
 import { Skeleton } from '@mantine/core'
 import { useRouter } from 'next/router'
 import DocumentLike from '@/common/document-like'
 import FileTree from '@/types/FileTree'
 import Toc from '@/types/Toc'
+import Params from '@/types/Params'
+import { generateTree } from '@/utils/generateTree'
 
 const SEP = process.env.sep as string
 
@@ -46,76 +48,13 @@ export async function getStaticPaths() {
   }
 }
 
-type Params = {
-  params: {
-    slug: string
-  }
-}
-
 export async function getStaticProps({ params }: Params) {
   const post = getPostBySlug(params.slug, ['slug', 'content'])
   const { content, toc } = await markdownToHtml(post.content || '')
+
   const allPaths = getAllPaths()
+  const tree = generateTree(allPaths)
 
-  const map = new Map<string, boolean>()
-
-  const tree: FileTree[] = []
-
-  const generate = (path: string, obj: FileTree[]): FileTree[] => {
-    if (!path.includes('/')) {
-      obj.push({
-        label: path.split('.')[0],
-        path: path.split('.')[0],
-        category: 'file'
-      })
-    } else {
-      const t = path.split('/')[0]
-      const f = obj.find((o) => o.label === t)
-      const current = path.split('/').slice(1).join('/')
-      if (!f) {
-        obj.push({
-          label: path.split('/')[0],
-          category: 'dir',
-          children: []
-        })
-        return generate(
-          current,
-          obj.find((o) => o.label === t)?.children as FileTree[]
-        )
-      } else {
-        return generate(current, f?.children as FileTree[])
-      }
-    }
-    return obj
-  }
-
-  for (const link of allPaths) {
-    if (!link.includes('/')) {
-      tree.push({
-        label: link.split('.')[0],
-        category: 'file'
-      })
-      continue
-    }
-    map.set(link.split('/')[0], true)
-  }
-
-  for (const m of map) {
-    const root: FileTree = {
-      label: m[0],
-      children: [],
-      category: 'dir'
-    }
-    for (const link of allPaths) {
-      if (link.split('/')[0] === root.label) {
-        generate(
-          link.split('/').slice(1).join('/'),
-          root.children as FileTree[]
-        )
-      }
-    }
-    tree.push(root)
-  }
   return {
     props: {
       content,

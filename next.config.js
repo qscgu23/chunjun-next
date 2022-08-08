@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   env: {
-    sep: '_',
+    sep: '->',
     root_zh: '../docs_zh',
     sql: '../chunjun-examples/sql',
     json: '../chunjun-examples/json'
