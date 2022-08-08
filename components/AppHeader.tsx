@@ -1,63 +1,126 @@
-import { Header, ActionIcon, ColorScheme, Text, Menu, Burger } from "@mantine/core";
-import { Sun, Moon, Language } from "tabler-icons-react";
-import Image from "next/image";
-import logo from "@/public/logo-dark.svg";
-import { headerLinks } from "@/config/headerLinks";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import {
+  Header,
+  ActionIcon,
+  ColorScheme,
+  Text,
+  Menu,
+  Burger
+} from '@mantine/core'
+import { Sun, Moon, Language } from 'tabler-icons-react'
+import Image from 'next/image'
+import logo from '@/public/logo-dark.svg'
+import { headerLink, headerLinks } from '@/config/headerLinks'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { FC, useState } from 'react'
+import { primaryColor } from '@/config/color'
 
 type Props = {
-  theme: ColorScheme;
-  changeTheme: () => void;
-  opened: boolean;
-  changeOpened: () => void;
-};
+  theme: ColorScheme
+  changeTheme: () => void
+  opened: boolean
+  changeOpened: () => void
+}
 
 const AppHeader = (props: Props) => {
-  const { theme, changeTheme, opened, changeOpened } = props;
-  const router = useRouter();
+  const { theme, changeTheme, opened, changeOpened } = props
+  const router = useRouter()
+  const [activeKey, setActiveKey] = useState('home')
+  type menutype = {
+    item: headerLink
+  }
+  const MenuItem: FC<menutype> = ({ item }) => {
+    return (
+      <div
+        style={{
+          borderColor: activeKey === item.key ? primaryColor.toString() : '',
+          borderBottomWidth: activeKey === item.key ? 2 : 0
+        }}
+        className={`w-[100px] flex justify-center items-center h-full text-gray-400 cursor-pointer hover:text-black hover:bg-gray-100/50`}
+      >
+        <Link href={item.path as string}>{item.name}</Link>
+      </div>
+    )
+  }
+  const ComplexMenuItem: FC<menutype> = ({ item }) => {
+    const pathlist = item.path as headerLink[]
+
+    return (
+      <div className="flex border-l border-r">
+        <div className="flex items-center">
+          {pathlist.map((item, index) => {
+            return (
+              <>
+                <div
+                  style={{
+                    borderColor:
+                      activeKey === item.key ? primaryColor.toString() : '',
+                    borderBottomWidth: activeKey === item.key ? 2 : 0
+                  }}
+                  className={` hover:text-black hover:bg-gray-100/50 w-[70px] text-[12px] flex justify-center items-center h-full text-gray-400 cursor-pointer`}
+                >
+                  <Link href={item.path as string}>
+                    <a className="uppercase">{item.name}</a>
+                  </Link>
+                </div>
+                {index !== pathlist.length - 1 && (
+                  <div className="h-[50%] bg-gray-100 w-[1px]"></div>
+                )}
+              </>
+            )
+          })}
+        </div>
+      </div>
+    )
+  }
 
   return (
-    <Header p={"sm"} height={64} className="flex items-center justify-between sticky">
-      <Burger opened={opened} onClick={changeOpened} className="md:hidden inline-block" />
-      <div className="h-full flex items-center cursor-pointer" onClick={() => router.push("/")}>
-        <Image src={logo} height={36} width={36} alt="logo of chunjun"></Image>
-        <Text className="text-xl font-bold capitalize flex items-center font-mono">Chunjun</Text>
+    <Header height={64} className="flex items-center justify-between sticky">
+      <Burger
+        opened={opened}
+        onClick={changeOpened}
+        className="md:hidden inline-block"
+      />
+      <div
+        className="h-full flex items-center cursor-pointer"
+        onClick={() => router.push('/')}
+      >
+        <div className="flex px-[30px]">
+          <Image
+            src={logo}
+            height={36}
+            width={36}
+            alt="logo of chunjun"
+          ></Image>
+          <Text className="text-xl font-bold capitalize flex items-center ">
+            Chunjun
+          </Text>
+        </div>
+
+        <div className="h-full flex">
+          {headerLinks.map((item: headerLink) => {
+            return (
+              <>
+                {typeof item.path === 'string' ? (
+                  <MenuItem item={item}></MenuItem>
+                ) : (
+                  <ComplexMenuItem item={item}></ComplexMenuItem>
+                )}
+              </>
+            )
+          })}
+        </div>
       </div>
-      <div className="h-full flex items-center space-x-4">
-        {headerLinks.map((l) => {
-          if (!Array.isArray(l.path) && l.path.includes("http")) {
-            return (
-              <a href={l.path} target="blank" key={l.key} className="capitalize hidden md:inline-block">
-                {l.name}
-              </a>
-            );
-          } else if (Array.isArray(l.path)) {
-            return (
-              <Menu shadow="md" width={100} position="bottom" key={l.key} trigger="hover">
-                <Menu.Target>
-                  <Text className="cursor-pointer hidden md:inline-block">{l.name}</Text>
-                </Menu.Target>
-                <Menu.Dropdown>
-                  {l.path.map((p) => (
-                    <Menu.Item key={p.key}>
-                      <Link href={p.path as string}>
-                        <a className="text-sm text-center uppercase w-full">{p.name}案例</a>
-                      </Link>
-                    </Menu.Item>
-                  ))}
-                </Menu.Dropdown>
-              </Menu>
-            );
-          } else {
-            return (
-              <Link href={l.path} key={l.key}>
-                <a className="capitalize hidden md:inline-block">{l.name}</a>
-              </Link>
-            );
-          }
-        })}
-        <Menu shadow="md" width={100} trigger="hover" openDelay={100} closeDelay={200} position="bottom">
+
+      <div className="h-full flex items-center space-x-4 pr-[9px]">
+        <Menu
+          shadow="md"
+          width={100}
+          trigger="hover"
+          openDelay={100}
+          closeDelay={200}
+          position="bottom"
+        >
           <Menu.Target>
             <ActionIcon variant="transparent">
               <Language />
@@ -68,12 +131,16 @@ const AppHeader = (props: Props) => {
             <Menu.Item>English</Menu.Item>
           </Menu.Dropdown>
         </Menu>
-        <ActionIcon variant="outline" color={theme === "dark" ? "yellow" : "blue"} onClick={changeTheme}>
-          {theme === "light" ? <Sun /> : <Moon />}
+        <ActionIcon
+          variant="outline"
+          color={theme === 'dark' ? 'yellow' : 'blue'}
+          onClick={changeTheme}
+        >
+          {theme === 'light' ? <Sun /> : <Moon />}
         </ActionIcon>
       </div>
     </Header>
-  );
-};
+  )
+}
 
-export default AppHeader;
+export default AppHeader
