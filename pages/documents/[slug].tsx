@@ -8,6 +8,7 @@ import FileTree from '@/types/FileTree'
 import Toc from '@/types/Toc'
 import Params from '@/types/Params'
 import { generateTree } from '@/utils/generateTree'
+import AppFooter from '@/components/AppFooter'
 
 const SEP = process.env.sep as string
 
@@ -22,13 +23,15 @@ const Post = ({
 }) => {
   const router = useRouter()
   return (
-    <DocumentLike tree={tree} target="/documents" toc={toc}>
-      {router.isFallback ? (
-        <Skeleton visible className="md:col-span-4" />
-      ) : (
-        <PostBody content={content} />
-      )}
-    </DocumentLike>
+    <>
+      <DocumentLike tree={tree} target="/documents" toc={toc}>
+        {router.isFallback ? (
+          <Skeleton visible className="md:col-span-4" />
+        ) : (
+          <PostBody content={content} />
+        )}
+      </DocumentLike>
+    </>
   )
 }
 

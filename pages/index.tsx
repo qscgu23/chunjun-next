@@ -6,6 +6,7 @@ import AppCustomers from '@/components/AppCustomers'
 import type { NextPage } from 'next'
 import React, { CSSProperties, FC } from 'react'
 import { primaryColor } from '@/config/color'
+import AppFooter from '@/components/AppFooter'
 
 type ConType = {
   children: JSX.Element
@@ -47,6 +48,7 @@ const Home: NextPage = () => {
       <Container>
         <AppCustomers />
       </Container>
+      <AppFooter></AppFooter>
     </div>
   )
 }

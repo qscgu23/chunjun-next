@@ -11,7 +11,7 @@ import {
 import { useState } from 'react'
 import AppHeader from '@/components/AppHeader'
 import AppNavbar from '@/components/AppNavbar'
-import AppFooter from '@/components/AppFooter'
+
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('light')
@@ -55,7 +55,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               padding: 0
             }
           })}
-          footer={<AppFooter />}
+
         >
           <Component {...pageProps} />
           <AppNavbar opened={opened} changeOpened={toggleNavbar} />

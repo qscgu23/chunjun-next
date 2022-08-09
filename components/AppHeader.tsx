@@ -31,15 +31,18 @@ const AppHeader = (props: Props) => {
   }
   const MenuItem: FC<menutype> = ({ item }) => {
     return (
-      <div
-        style={{
+      <Link
+        href={item.path as string}
+      >
+        <div style={{
           borderColor: activeKey === item.key ? primaryColor.toString() : '',
           borderBottomWidth: activeKey === item.key ? 2 : 0
         }}
-        className={`w-[100px] flex justify-center items-center h-full text-gray-400 cursor-pointer hover:text-black hover:bg-gray-100/50`}
-      >
-        <Link href={item.path as string}>{item.name}</Link>
-      </div>
+          className={`w-[100px] flex justify-center items-center h-full text-gray-400 cursor-pointer hover:text-black hover:bg-gray-100/50`}>
+          {item.name}
+        </div>
+
+      </Link>
     )
   }
   const ComplexMenuItem: FC<menutype> = ({ item }) => {
@@ -83,7 +86,6 @@ const AppHeader = (props: Props) => {
       />
       <div
         className="h-full flex items-center cursor-pointer"
-        onClick={() => router.push('/')}
       >
         <div className="flex px-[30px]">
           <Image

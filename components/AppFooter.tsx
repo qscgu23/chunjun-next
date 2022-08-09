@@ -1,6 +1,5 @@
 import React from 'react'
 import { Card, Text } from '@mantine/core'
-import { Footer } from '@mantine/core'
 import Link from 'next/link'
 import Image from 'next/image'
 import dt from '@/public/dt.jpg'

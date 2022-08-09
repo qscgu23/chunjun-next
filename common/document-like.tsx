@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import FileTree from '@/types/FileTree'
 import Toc from '@/types/Toc'
+import AppFooter from '@/components/AppFooter'
 
 const SEP = process.env.sep as string
 
@@ -60,15 +61,17 @@ const DocumentLike = (props: Props) => {
   return (
     <main className="md:pl-[280px] relative">
       <aside
-        className={`fixed scrollbar shadow-xl h-[calc(100vh-64px)] overflow-y-auto left-0 top-[64px] md:w-[280px] hidden md:inline-block ${
-          colorScheme === 'light' ? 'bg-white' : 'bg-[#333]'
-        }`}
+        className={`fixed scrollbar shadow-xl h-[calc(100vh-64px)] overflow-y-auto left-0 top-[64px] md:w-[280px] hidden md:inline-block ${colorScheme === 'light' ? 'bg-white' : 'bg-[#333]'
+          }`}
       >
         {tree.map((l) => generateNavLink(l, l.label))}
       </aside>
       <section className="grid md:grid-cols-4 grid-cols-1">
         {children}
         {toc && <TableOfContent toc={toc} />}
+      </section>
+      <section className="grid  grid-cols-1">
+        <AppFooter></AppFooter>
       </section>
     </main>
   )
