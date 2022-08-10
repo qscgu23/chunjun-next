@@ -3,6 +3,7 @@ import Aos from 'aos'
 import { Text } from '@mantine/core'
 import { primaryColor } from '@/config/color'
 import Image from 'next/image'
+
 const AppCards = () => {
   useEffect(() => {
     Aos.init({
@@ -38,19 +39,17 @@ const AppCards = () => {
                 height={70}
                 width={70}
                 className="card"
-                src={require('../assets/svg/code.svg').default.src}
+                src="/assets/svg/code.svg"
                 alt="code"
               />
-              <Text className="card-text text-[14px]  ">
-                基于json、sql 构建任务
-              </Text>
+              <Text className="text-[14px]  ">基于json、sql 构建任务</Text>
             </div>
             <div className="w-full flex flex-col items-center space-y-6">
               <Image
                 height={70}
                 width={70}
                 className="card"
-                src={require('../assets/svg/trans.svg').default.src}
+                src="/assets/svg/trans.svg"
                 alt="trans"
               />
               <Text className="card-text text-[14px]">
@@ -62,7 +61,7 @@ const AppCards = () => {
                 height={70}
                 width={70}
                 className="card"
-                src={require('../assets/svg/sync.svg').default.src}
+                src="/assets/svg/sync.svg"
                 alt="sync"
               />
               <Text className="card-text text-[14px]">
@@ -74,7 +73,7 @@ const AppCards = () => {
                 height={70}
                 width={70}
                 className="card"
-                src={require('../assets/svg/hcs_sgw.svg').default.src}
+                src="/assets/svg/hcs_sgw.svg"
                 alt="dirty-data"
               />
               <Text className="card-text text-[14px]">
@@ -86,7 +85,7 @@ const AppCards = () => {
                 height={70}
                 width={70}
                 className="card"
-                src={require('../assets/svg/datav.svg').default.src}
+                src="/assets/svg/datav.svg"
                 alt="schema"
               />
               <Text className="card-text text-[14px]">支持Schema同步</Text>
@@ -96,7 +95,7 @@ const AppCards = () => {
                 height={70}
                 width={70}
                 className="card"
-                src={require('../assets/svg/collect.svg').default.src}
+                src="/assets/svg/collect.svg"
                 alt="collect"
               />
               <Text className="card-text text-[14px]">

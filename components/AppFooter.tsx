@@ -2,7 +2,6 @@ import React from 'react'
 import { Card, Text } from '@mantine/core'
 import Link from 'next/link'
 import Image from 'next/image'
-import dt from '@/public/dt.jpg'
 import { primaryColor } from '@/config/color'
 const AppFooter = () => {
   return (
@@ -16,7 +15,12 @@ const AppFooter = () => {
         <div className="  w-full flex justify-center items-center bg-block bg-contain bg-center bg-no-repeat">
           <Card component="a" className="bg-transparent">
             <Card.Section className="flex justify-center items-center">
-              <Image src={dt} height={140} width={140} alt="No way!" />
+              <Image
+                src="/assets/img/dt.jpg"
+                height={140}
+                width={140}
+                alt="二维码"
+              />
             </Card.Section>
             <Text pt={20} weight={500} className="text-center text-gray-300">
               联系我们
