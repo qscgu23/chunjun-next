@@ -2,7 +2,7 @@ import AppBanner from '@/components/AppBanner'
 import AppCards from '@/components/AppCards'
 import AppMedium from '@/components/AppMedium'
 import AppShowCase from '@/components/AppShowCase'
-import AppCustomers from '@/components/AppCustomers'
+// import AppCustomers from '@/components/AppCustomers'
 import type { NextPage } from 'next'
 import React, { CSSProperties, FC } from 'react'
 import { primaryColor } from '@/config/color'
@@ -45,9 +45,9 @@ const Home: NextPage = () => {
       <Container className="bg-blue-50/50">
         <AppShowCase />
       </Container>
-      <Container>
+      {/* <Container>
         <AppCustomers />
-      </Container>
+      </Container> */}
       <AppFooter></AppFooter>
     </div>
   )
