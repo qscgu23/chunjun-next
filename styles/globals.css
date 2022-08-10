@@ -32,7 +32,7 @@
 .item-enter {
   opacity: 0;
   transform: translateY(10px);
- }
+}
 .item-enter-active {
   opacity: 1;
   transform: translateY(0);
@@ -46,6 +46,6 @@
   transform: translateY(-60px);
   transition: all 500ms ease-in;
 }
-*{
+* {
   font-family: '微软雅黑';
 }

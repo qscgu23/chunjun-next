@@ -11,6 +11,9 @@ const nextConfig = {
   i18n: {
     locales: ['en-US', 'zh-Hans'],
     defaultLocale: 'zh-Hans'
+  },
+  images: {
+    domains: ['github.com']
   }
 }
 

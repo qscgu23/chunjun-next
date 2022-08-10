@@ -3,17 +3,15 @@ import {
   ActionIcon,
   ColorScheme,
   Text,
-  Menu,
-  Burger
+  Burger,
+  SegmentedControl,
+  Menu
 } from '@mantine/core'
-import { Sun, Moon, Language } from 'tabler-icons-react'
+import { Sun, Moon, Umbrella } from 'tabler-icons-react'
 import Image from 'next/image'
 import logo from '@/public/logo-dark.svg'
-import { headerLink, headerLinks } from '@/config/headerLinks'
+import { headerLinks } from '@/config/headerLinks'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { FC, useEffect, useState } from 'react'
-import { primaryColor } from '@/config/color'
 
 type Props = {
   theme: ColorScheme
@@ -24,110 +22,80 @@ type Props = {
 
 const AppHeader = (props: Props) => {
   const { theme, changeTheme, opened, changeOpened } = props
-  const router = useRouter()
-  const [activeKey, setActiveKey] = useState('home')
-  type menutype = {
-    item: headerLink
-  }
-  useEffect(() => {
-    const { key } = router.query
-    setActiveKey(key as string)
-  }, [router.query.key])
-  const MenuItem: FC<menutype> = ({ item }) => {
-    return (
-      <Link
-        href={
-          {
-            pathname: item.path as string,
-            query: { key: item.key }
-          }
-        }
-
-      >
-        <div style={{
-          borderColor: activeKey === item.key ? primaryColor.toString() : '',
-          borderBottomWidth: activeKey === item.key ? 2 : 0
-        }}
-          className={`w-[100px] flex justify-center items-center h-full text-gray-400 cursor-pointer hover:text-black hover:bg-gray-100/50`}>
-          {item.name}
-        </div>
-
-      </Link>
-    )
-  }
-  const ComplexMenuItem: FC<menutype> = ({ item }) => {
-    const pathlist = item.path as headerLink[]
-
-    return (
-      <div className="flex border-l border-r">
-        <div className="flex items-center">
-          {pathlist.map((item, index) => {
-            return (
-              <>
-                <Link href={
-                  {
-                    pathname: item.path as string,
-                    query: { key: item.key }
-                  }}
-
-                >
-                  <a style={{
-                    borderColor:
-                      activeKey === item.key ? primaryColor.toString() : '',
-                    borderBottomWidth: activeKey === item.key ? 2 : 0
-                  }}
-                    className={` hover:text-black hover:bg-gray-100/50 w-[70px] text-[12px] flex justify-center items-center h-full text-gray-400 cursor-pointer`}>{item.name}</a>
-                </Link>
-                {index !== pathlist.length - 1 && (
-                  <div className="h-[50%] bg-gray-100 w-[1px]"></div>
-                )}
-              </>
-            )
-          })}
-        </div>
-      </div>
-    )
-  }
-
   return (
-    <Header height={64} className="flex items-center justify-between sticky">
+    <Header
+      height={64}
+      className="flex items-center justify-between sticky shadow-md"
+    >
       <Burger
         opened={opened}
         onClick={changeOpened}
         className="md:hidden inline-block"
       />
-      <div
-        className="h-full flex items-center cursor-pointer"
-      >
-        <div className="flex px-[30px]">
-          <Image
-            src={logo}
-            height={36}
-            width={36}
-            alt="logo of chunjun"
-          ></Image>
-          <Text className="text-xl font-bold capitalize flex items-center ">
+      <div className="h-full flex items-center cursor-pointer">
+        <div className="flex px-[30px] md:mr-10 mr-0">
+          <Image src={logo} height={48} width={48} alt="logo of chunjun" />
+          <Text className="text-xl capitalize flex items-center font-raleway">
             Chunjun
           </Text>
         </div>
-
-        <div className="h-full flex">
-          {headerLinks.map((item: headerLink) => {
-            return (
-              <>
-                {typeof item.path === 'string' ? (
-                  <MenuItem item={item}></MenuItem>
-                ) : (
-                  <ComplexMenuItem item={item}></ComplexMenuItem>
-                )}
-              </>
-            )
+        <div className="h-full md:flex hidden items-center">
+          {headerLinks.map((link) => {
+            if (link.path[0] === '/' && !Array.isArray(link.path)) {
+              return (
+                <Link href={link.path} key={link.key}>
+                  <a className="font-raleway inline-block md:w-[72px] text-center">
+                    {link.name}
+                  </a>
+                </Link>
+              )
+            } else if (Array.isArray(link.path)) {
+              return (
+                <Menu
+                  shadow="md"
+                  width={100}
+                  trigger="hover"
+                  openDelay={100}
+                  closeDelay={200}
+                  key={link.key}
+                  position="bottom"
+                >
+                  <Menu.Target>
+                    <span className="font-raleway inline-block md:w-[72px] text-center">
+                      {link.name}
+                    </span>
+                  </Menu.Target>
+                  <Menu.Dropdown>
+                    {link.path.map((url) => {
+                      return (
+                        <Menu.Item key={url.key}>
+                          <Link href={url.path as string}>
+                            <a className="font-raleway uppercase">{url.name}</a>
+                          </Link>
+                        </Menu.Item>
+                      )
+                    })}
+                  </Menu.Dropdown>
+                </Menu>
+              )
+            } else {
+              return (
+                <a
+                  href={link.path}
+                  key={link.key}
+                  className="font-raleway inline-block md:w-[72px] text-center"
+                  target="blank"
+                >
+                  {link.name}
+                </a>
+              )
+            }
           })}
         </div>
       </div>
 
       <div className="h-full flex items-center space-x-4 pr-[9px]">
-        <Menu
+        {/* <Menu
           shadow="md"
           width={100}
           trigger="hover"
@@ -144,7 +112,13 @@ const AppHeader = (props: Props) => {
             <Menu.Item>简体中文</Menu.Item>
             <Menu.Item>English</Menu.Item>
           </Menu.Dropdown>
-        </Menu>
+        </Menu> */}
+        <SegmentedControl
+          data={[
+            { label: '简体中文', value: 'zh-Hans' },
+            { label: 'English', value: 'en' }
+          ]}
+        />
         <ActionIcon
           variant="outline"
           color={theme === 'dark' ? 'yellow' : 'blue'}

@@ -2,16 +2,18 @@ lockfileVersion: 5.4
 
 specifiers:
   '@emotion/react': ^11.9.3
-  '@icon-park/react': ^1.4.2
   '@mantine/core': ^5.0.0
   '@mantine/hooks': ^5.0.0
   '@mantine/next': ^5.0.0
   '@mantine/prism': ^5.0.3
+  '@types/aos': ^3.0.4
   '@types/color': ^3.0.3
+  '@types/lodash': ^4.14.182
   '@types/marked': ^4.0.3
   '@types/node': 18.0.6
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
+  '@types/react-transition-group': ^4.4.5
   '@types/uuid': ^8.3.4
   aos: ^2.3.4
   autoprefixer: ^10.4.7
@@ -34,11 +36,11 @@ specifiers:
 
 dependencies:
   '@emotion/react': registry.npmmirror.com/@emotion/react/11.9.3_3hx2ussxxho4jajbwrd6gq34qe
-  '@icon-park/react': registry.npmmirror.com/@icon-park/react/1.4.2_biqbaboplfbrettd7655fr4n2y
   '@mantine/core': registry.npmmirror.com/@mantine/core/5.0.0_of3avfhfsphj3pj23xp4l6lqty
   '@mantine/hooks': registry.npmmirror.com/@mantine/hooks/5.0.0_react@18.2.0
   '@mantine/next': registry.npmmirror.com/@mantine/next/5.0.0_s6cx5yeli56vzhh6xrdqywu4xu
   '@mantine/prism': registry.npmmirror.com/@mantine/prism/5.0.3_2ppm4dxv545wtv3onrl7ubqcf4
+  '@types/aos': registry.npmmirror.com/@types/aos/3.0.4
   '@types/color': registry.npmmirror.com/@types/color/3.0.3
   '@types/uuid': registry.npmmirror.com/@types/uuid/8.3.4
   aos: registry.npmmirror.com/aos/2.3.4
@@ -55,10 +57,12 @@ dependencies:
   uuid: registry.npmmirror.com/uuid/8.3.2
 
 devDependencies:
+  '@types/lodash': registry.npmmirror.com/@types/lodash/4.14.182
   '@types/marked': registry.npmmirror.com/@types/marked/4.0.3
   '@types/node': registry.npmmirror.com/@types/node/18.0.6
   '@types/react': registry.npmmirror.com/@types/react/18.0.15
   '@types/react-dom': registry.npmmirror.com/@types/react-dom/18.0.6
+  '@types/react-transition-group': registry.npmmirror.com/@types/react-transition-group/4.4.5
   autoprefixer: registry.npmmirror.com/autoprefixer/10.4.7_postcss@8.4.14
   eslint: registry.npmmirror.com/eslint/8.20.0
   eslint-config-next: registry.npmmirror.com/eslint-config-next/12.2.3_he2ccbldppg44uulnyq4rwocfa
@@ -343,20 +347,6 @@ packages:
     name: '@humanwhocodes/object-schema'
     version: 1.2.1
     dev: true
-
-  registry.npmmirror.com/@icon-park/react/1.4.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-+MtQLjNiRuia3fC/NfpSCTIy5KH5b+NkMB9zYd7p3R4aAIK61AjK0OSraaICJdkKooU9jpzk8m0fY4g9A3JqhQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@icon-park/react/-/react-1.4.2.tgz}
-    id: registry.npmmirror.com/@icon-park/react/1.4.2
-    name: '@icon-park/react'
-    version: 1.4.2
-    engines: {node: '>= 8.0.0', npm: '>= 5.0.0'}
-    peerDependencies:
-      react: '>=16.9'
-      react-dom: '>=16.9'
-    dependencies:
-      react: registry.npmmirror.com/react/18.2.0
-      react-dom: registry.npmmirror.com/react-dom/18.2.0_react@18.2.0
-    dev: false
 
   registry.npmmirror.com/@mantine/core/5.0.0_of3avfhfsphj3pj23xp4l6lqty:
     resolution: {integrity: sha512-bhtoegMPp+7IDsuouDRjdde8pA5z+Z8cBcRhpoWXdfpA97jldHXDe2XhRpzwMzSN5f2mTQUj3ZtJG5jm4TXTUA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@mantine/core/-/core-5.0.0.tgz}
@@ -833,6 +823,12 @@ packages:
       tslib: registry.npmmirror.com/tslib/2.4.0
     dev: false
 
+  registry.npmmirror.com/@types/aos/3.0.4:
+    resolution: {integrity: sha512-mna6Jd6bdK1NpwarLopGvXOgUoCfj0470IwLxuVOFDElTGI0JTd7xSGQ0AjbAEnHErC/b3fA9t2uB3IXVKmckA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/aos/-/aos-3.0.4.tgz}
+    name: '@types/aos'
+    version: 3.0.4
+    dev: false
+
   registry.npmmirror.com/@types/color-convert/2.0.0:
     resolution: {integrity: sha512-m7GG7IKKGuJUXvkZ1qqG3ChccdIM/qBBo913z+Xft0nKCX4hAU/IxKwZBU4cpRZ7GS5kV4vOblUkILtSShCPXQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/color-convert/-/color-convert-2.0.0.tgz}
     name: '@types/color-convert'
@@ -859,6 +855,12 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/json5/-/json5-0.0.29.tgz}
     name: '@types/json5'
     version: 0.0.29
+    dev: true
+
+  registry.npmmirror.com/@types/lodash/4.14.182:
+    resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/lodash/-/lodash-4.14.182.tgz}
+    name: '@types/lodash'
+    version: 4.14.182
     dev: true
 
   registry.npmmirror.com/@types/marked/4.0.3:
@@ -888,6 +890,14 @@ packages:
     resolution: {integrity: sha512-/5OFZgfIPSwy+YuIBP/FgJnQnsxhZhjjrnxudMddeblOouIodEQ75X14Rr4wGSG/bknL+Omy9iWlLo1u/9GzAA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/react-dom/-/react-dom-18.0.6.tgz}
     name: '@types/react-dom'
     version: 18.0.6
+    dependencies:
+      '@types/react': registry.npmmirror.com/@types/react/18.0.15
+    dev: true
+
+  registry.npmmirror.com/@types/react-transition-group/4.4.5:
+    resolution: {integrity: sha512-juKD/eiSM3/xZYzjuzH6ZwpP+/lejltmiS3QEzV/vmb/Q8+HfDmxu+Baga8UEMGBqV88Nbg4l2hY/K2DkyaLLA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/react-transition-group/-/react-transition-group-4.4.5.tgz}
+    name: '@types/react-transition-group'
+    version: 4.4.5
     dependencies:
       '@types/react': registry.npmmirror.com/@types/react/18.0.15
     dev: true
