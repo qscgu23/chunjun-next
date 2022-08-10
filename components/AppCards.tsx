@@ -42,7 +42,9 @@ const AppCards = () => {
                 src="/assets/svg/code.svg"
                 alt="code"
               />
-              <Text className="text-[14px]  ">基于json、sql 构建任务</Text>
+              <Text size={'sm'} align="center">
+                基于json、sql 构建任务
+              </Text>
             </div>
             <div className="w-full flex flex-col items-center space-y-6">
               <Image
@@ -52,7 +54,7 @@ const AppCards = () => {
                 src="/assets/svg/trans.svg"
                 alt="trans"
               />
-              <Text className="card-text text-[14px]">
+              <Text size={'sm'} align="center">
                 支持多种异构数据源之间数据传输
               </Text>
             </div>
@@ -64,7 +66,7 @@ const AppCards = () => {
                 src="/assets/svg/sync.svg"
                 alt="sync"
               />
-              <Text className="card-text text-[14px]">
+              <Text size={'sm'} align="center">
                 支持断点续传、增量同步
               </Text>
             </div>
@@ -76,7 +78,7 @@ const AppCards = () => {
                 src="/assets/svg/hcs_sgw.svg"
                 alt="dirty-data"
               />
-              <Text className="card-text text-[14px]">
+              <Text size={'sm'} align="center">
                 支持任务脏数据存储管理
               </Text>
             </div>
@@ -88,7 +90,9 @@ const AppCards = () => {
                 src="/assets/svg/datav.svg"
                 alt="schema"
               />
-              <Text className="card-text text-[14px]">支持Schema同步</Text>
+              <Text size={'sm'} align="center">
+                支持Schema同步
+              </Text>
             </div>
             <div className="w-full flex flex-col items-center space-y-6">
               <Image
@@ -98,7 +102,7 @@ const AppCards = () => {
                 src="/assets/svg/collect.svg"
                 alt="collect"
               />
-              <Text className="card-text text-[14px]">
+              <Text size={'sm'} align="center">
                 支持RDBS数据源实时采集
               </Text>
             </div>
