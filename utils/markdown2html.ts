@@ -24,7 +24,6 @@ export const markdownToHtml = async (markdown: string) => {
   marked.use({ renderer })
   marked.setOptions({
     highlight: function (code) {
-      console.log(code)
       return hljs.highlightAuto(code).value
     }
   })
