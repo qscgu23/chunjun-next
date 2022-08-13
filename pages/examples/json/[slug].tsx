@@ -16,7 +16,7 @@ const JsonExamples = (props: Props) => {
   const { json, tree } = props
   return (
     <DocumentLike tree={tree} target="/examples/json">
-      <div className="md:col-span-4 md:px-24 md:py-8 p-2">
+      <div className="md:col-span-4 md:px-12 md:py-8 p-2">
         <Prism spellCheck language="json">
           {json}
         </Prism>

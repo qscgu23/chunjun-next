@@ -58,7 +58,7 @@ const AppHeader = (props: Props) => {
               return (
                 <Menu
                   shadow="md"
-                  width={150}
+                  width={120}
                   trigger="hover"
                   openDelay={100}
                   closeDelay={200}
@@ -74,7 +74,7 @@ const AppHeader = (props: Props) => {
                   <Menu.Dropdown>
                     {link.path.map((url) => {
                       return (
-                        <Menu.Item key={url.key} className="text-center">
+                        <Menu.Item key={url.key}>
                           <Link href={url.path as string}>
                             <a className="uppercase">{url.name}示例</a>
                           </Link>

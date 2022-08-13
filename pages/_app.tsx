@@ -1,5 +1,6 @@
 import '@/styles/globals.css'
 import '@/styles/font.css'
+import 'aos/dist/aos.css'
 import Head from 'next/head'
 import type { AppProps } from 'next/app'
 import {
@@ -11,7 +12,6 @@ import {
 import { useState } from 'react'
 import AppHeader from '@/components/AppHeader'
 import AppNavbar from '@/components/AppNavbar'
-
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [colorScheme, setColorScheme] = useState<ColorScheme>('light')
@@ -55,7 +55,6 @@ function MyApp({ Component, pageProps }: AppProps) {
               padding: 0
             }
           })}
-
         >
           <Component {...pageProps} />
           <AppNavbar opened={opened} changeOpened={toggleNavbar} />

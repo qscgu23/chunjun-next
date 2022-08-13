@@ -58,4 +58,7 @@
 }
 
 @layer components {
+  .section-padding {
+    @apply md:py-24 p-6;
+  }
 }
