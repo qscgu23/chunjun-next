@@ -7,11 +7,12 @@ import {
   SegmentedControl,
   Menu
 } from '@mantine/core'
-import { Sun, Moon, Umbrella } from 'tabler-icons-react'
+import { Sun, Moon, ChevronDown } from 'tabler-icons-react'
 import Image from 'next/image'
 import logo from '@/public/logo-dark.svg'
 import { headerLinks } from '@/config/headerLinks'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 type Props = {
   theme: ColorScheme
@@ -22,24 +23,28 @@ type Props = {
 
 const AppHeader = (props: Props) => {
   const { theme, changeTheme, opened, changeOpened } = props
+  const router = useRouter()
   return (
     <Header
       height={64}
-      className="flex items-center justify-between sticky shadow-md"
+      className="flex items-center justify-between sticky shadow-md bg--gray-50"
     >
       <Burger
         opened={opened}
         onClick={changeOpened}
         className="md:hidden inline-block"
       />
-      <div className="h-full flex items-center cursor-pointer">
-        <div className="flex px-[30px] md:mr-10 mr-0">
+      <div className="h-full flex items-center flex-1 cursor-pointer">
+        <div
+          className="flex h-full items-center md:justify-start justify-center md:w-auto w-full"
+          onClick={() => router.push('/')}
+        >
           <Image src={logo} height={48} width={48} alt="logo of chunjun" />
-          <Text className="text-xl capitalize flex items-center font-raleway">
+          <Text className="text-xl capitalize flex items-center font-raleway select-none">
             Chunjun
           </Text>
         </div>
-        <div className="h-full md:flex hidden items-center">
+        <div className="h-full justify-center flex-1 md:flex hidden items-center">
           {headerLinks.map((link) => {
             if (link.path[0] === '/' && !Array.isArray(link.path)) {
               return (
@@ -53,7 +58,7 @@ const AppHeader = (props: Props) => {
               return (
                 <Menu
                   shadow="md"
-                  width={100}
+                  width={150}
                   trigger="hover"
                   openDelay={100}
                   closeDelay={200}
@@ -61,16 +66,17 @@ const AppHeader = (props: Props) => {
                   position="bottom"
                 >
                   <Menu.Target>
-                    <span className="font-raleway inline-block md:w-[72px] text-center">
+                    <span className="flex items-center md:w-[72px] justify-center text-center">
                       {link.name}
+                      <ChevronDown size={16} className="ml-1" />
                     </span>
                   </Menu.Target>
                   <Menu.Dropdown>
                     {link.path.map((url) => {
                       return (
-                        <Menu.Item key={url.key}>
+                        <Menu.Item key={url.key} className="text-center">
                           <Link href={url.path as string}>
-                            <a className="font-raleway uppercase">{url.name}</a>
+                            <a className="uppercase">{url.name}示例</a>
                           </Link>
                         </Menu.Item>
                       )
@@ -95,24 +101,6 @@ const AppHeader = (props: Props) => {
       </div>
 
       <div className="h-full flex items-center space-x-4 pr-[9px]">
-        {/* <Menu
-          shadow="md"
-          width={100}
-          trigger="hover"
-          openDelay={100}
-          closeDelay={200}
-          position="bottom"
-        >
-          <Menu.Target>
-            <ActionIcon variant="transparent">
-              <Language />
-            </ActionIcon>
-          </Menu.Target>
-          <Menu.Dropdown>
-            <Menu.Item>简体中文</Menu.Item>
-            <Menu.Item>English</Menu.Item>
-          </Menu.Dropdown>
-        </Menu> */}
         <SegmentedControl
           data={[
             { label: '简体中文', value: 'zh-Hans' },

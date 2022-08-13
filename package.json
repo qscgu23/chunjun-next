@@ -20,6 +20,7 @@
     "aos": "^2.3.4",
     "color": "^4.2.3",
     "gray-matter": "^4.0.3",
+    "highlight.js": "^11.6.0",
     "i18n-next": "^0.0.4",
     "lodash": "^4.17.21",
     "marked": "^4.0.18",

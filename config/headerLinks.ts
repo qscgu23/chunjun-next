@@ -5,7 +5,7 @@ export type headerLink = {
   path: string | headerLink[]
   key: string
 }
- 
+
 export const headerLinks: headerLink[] = [
   {
     name: '首页',
@@ -21,6 +21,11 @@ export const headerLinks: headerLink[] = [
     name: '下载',
     path: 'https://github.com/DTStack/chunjun/releases',
     key: 'download'
+  },
+  {
+    name: '指南',
+    path: '/faq',
+    key: 'faq'
   },
   {
     name: '案例',

@@ -59,10 +59,13 @@ const DocumentLike = (props: Props) => {
   }
 
   return (
-    <main className="md:pl-[280px] relative">
+    <main className="md:pl-[256px] relative">
       <aside
-        className={`fixed scrollbar shadow-xl h-[calc(100vh-64px)] overflow-y-auto left-0 top-[64px] md:w-[280px] hidden md:inline-block ${colorScheme === 'light' ? 'bg-white' : 'bg-[#333]'
-          }`}
+        className={`fixed shadow-xl h-[calc(100vh-64px)] overflow-y-auto left-0 top-[64px] md:w-[256px] hidden md:inline-block ${
+          colorScheme === 'light'
+            ? 'bg-white scrollbar'
+            : 'bg-[#333] dark-scrollbar'
+        }`}
       >
         {tree.map((l) => generateNavLink(l, l.label))}
       </aside>
@@ -70,7 +73,7 @@ const DocumentLike = (props: Props) => {
         {children}
         {toc && <TableOfContent toc={toc} />}
       </section>
-      <section className="grid  grid-cols-1">
+      <section className="grid grid-cols-1">
         <AppFooter></AppFooter>
       </section>
     </main>

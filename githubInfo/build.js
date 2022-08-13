@@ -1,5 +1,5 @@
 /**
- * @description 获取chunjun repo 成员的脚步
+ * @description 获取chunjun repo 成员的脚本
  *  使用node 执行后 成员信息会保存在同级目录的 member.json下
  */
 const axios = require('axios')

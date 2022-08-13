@@ -21,6 +21,7 @@ specifiers:
   eslint: 8.20.0
   eslint-config-next: 12.2.3
   gray-matter: ^4.0.3
+  highlight.js: ^11.6.0
   i18n-next: ^0.0.4
   lodash: ^4.17.21
   marked: ^4.0.18
@@ -46,6 +47,7 @@ dependencies:
   aos: registry.npmmirror.com/aos/2.3.4
   color: registry.npmmirror.com/color/4.2.3
   gray-matter: registry.npmmirror.com/gray-matter/4.0.3
+  highlight.js: registry.npmmirror.com/highlight.js/11.6.0
   i18n-next: registry.npmmirror.com/i18n-next/0.0.4
   lodash: registry.npmmirror.com/lodash/4.17.21
   marked: registry.npmmirror.com/marked/4.0.18
@@ -2428,6 +2430,13 @@ packages:
     engines: {node: '>= 0.4.0'}
     dependencies:
       function-bind: registry.npmmirror.com/function-bind/1.1.1
+
+  registry.npmmirror.com/highlight.js/11.6.0:
+    resolution: {integrity: sha512-ig1eqDzJaB0pqEvlPVIpSSyMaO92bH1N2rJpLMN/nX396wTpDA4Eq0uK+7I/2XG17pFaaKE0kjV/XPeGt7Evjw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/highlight.js/-/highlight.js-11.6.0.tgz}
+    name: highlight.js
+    version: 11.6.0
+    engines: {node: '>=12.0.0'}
+    dev: false
 
   registry.npmmirror.com/hoist-non-react-statics/3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz}

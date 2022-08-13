@@ -1,27 +1,15 @@
-import React, { useEffect } from 'react'
-import Aos from 'aos'
 import { Text } from '@mantine/core'
 import { primaryColor } from '@/config/color'
 import Image from 'next/image'
 
 const AppCards = () => {
-  useEffect(() => {
-    Aos.init({
-      duration: 1000
-    })
-  }, [])
-
   return (
     <section className="w-full h-full relative flex items-center ">
-      <section
-        data-aos="zoom-in"
-        className="w-full h-full items-center flex dark:text-[#797a7d]"
-      >
+      <section className="w-full h-full items-center flex dark:text-[#797a7d]">
         <section className="w-[50%] h-full flex items-center justify-center">
           <h1
             data-aos="fade-down"
-            className="text-center h-full items-center flex md:text-5xl   font-bold  capitalize"
-            style={{ color: primaryColor.darken(0.5).toString() }}
+            className="text-center h-full items-center flex md:text-5xl font-bold capitalize"
           >
             Core features
           </h1>
@@ -38,7 +26,6 @@ const AppCards = () => {
               <Image
                 height={70}
                 width={70}
-                className="card"
                 src="/assets/svg/code.svg"
                 alt="code"
               />
@@ -62,7 +49,6 @@ const AppCards = () => {
               <Image
                 height={70}
                 width={70}
-                className="card"
                 src="/assets/svg/sync.svg"
                 alt="sync"
               />
@@ -74,7 +60,6 @@ const AppCards = () => {
               <Image
                 height={70}
                 width={70}
-                className="card"
                 src="/assets/svg/hcs_sgw.svg"
                 alt="dirty-data"
               />

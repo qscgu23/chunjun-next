@@ -8,7 +8,6 @@ import FileTree from '@/types/FileTree'
 import Toc from '@/types/Toc'
 import Params from '@/types/Params'
 import { generateTree } from '@/utils/generateTree'
-import AppFooter from '@/components/AppFooter'
 
 const SEP = process.env.sep as string
 
