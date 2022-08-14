@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-pattern': "url('/assets/img/block2_2x-removebg-preview.png')"
+        'data-light': "url('/assets/svg/cdp-data-light.svg')",
+        'data-dark': "url('/assets/svg/cdp-data-dark.svg')"
       }
     }
   },

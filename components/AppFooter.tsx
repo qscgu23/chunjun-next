@@ -24,7 +24,7 @@ const AppFooter = () => {
             <Text pt={20} weight={500} className="text-center text-gray-300">
               联系我们
             </Text>
-            <Text color="gray" size="sm">
+            <Text color="dimmed" size="sm">
               在这里你可以获取到最新的技术及产品知识
             </Text>
           </Card>
