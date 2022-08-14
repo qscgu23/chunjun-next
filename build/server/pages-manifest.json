@@ -1,0 +1,18 @@
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/documents/[slug]": "pages/documents/[slug].js",
+  "/examples/sql/[slug]": "pages/examples/sql/[slug].js",
+  "/examples/json/[slug]": "pages/examples/json/[slug].js",
+  "/_document": "pages/_document.js",
+  "/zh-Hans/404": "pages/zh-Hans/404.html",
+  "/en-US/404": "pages/en-US/404.html",
+  "/zh-Hans/500": "pages/zh-Hans/500.html",
+  "/en-US/500": "pages/en-US/500.html",
+  "/zh-Hans/help": "pages/zh-Hans/help.html",
+  "/en-US/help": "pages/en-US/help.html",
+  "/zh-Hans/faq": "pages/zh-Hans/faq.html",
+  "/en-US/faq": "pages/en-US/faq.html",
+  "/zh-Hans": "pages/zh-Hans.html",
+  "/en-US": "pages/en-US.html"
+}

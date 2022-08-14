@@ -14,7 +14,8 @@ const nextConfig = {
   },
   images: {
     domains: ['github.com']
-  }
+  },
+  distDir: 'build'
 }
 
 module.exports = nextConfig
