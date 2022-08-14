@@ -4,9 +4,9 @@ const nextConfig = {
   swcMinify: true,
   env: {
     sep: '@',
-    root_zh: '../docs_zh',
-    sql: '../chunjun-examples/sql',
-    json: '../chunjun-examples/json'
+    root_zh: '/docs_zh',
+    sql: '/chunjun-examples/sql',
+    json: '/chunjun-examples/json'
   },
   i18n: {
     locales: ['en-US', 'zh-Hans'],
