@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <title>纯钧</title>
           <meta name="description" content="纯钧Chunjun" />
-          <link rel="icon" href="/logo-dark.svg" />
+          <link rel="shortcut icon" href="/logo-dark.svg" />
         </Head>
         <AppShell
           padding={'md'}
