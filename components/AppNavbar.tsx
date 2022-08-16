@@ -9,6 +9,8 @@ type Props = {
   changeOpened: () => void
 }
 
+const SEP = process.env.sep as string
+
 // TODO:同步header的链接
 
 const AppNavbar = (props: Props) => {
@@ -30,7 +32,7 @@ const AppNavbar = (props: Props) => {
         <ActionIcon variant="light" color="violet" className="mx-2">
           <Signature />
         </ActionIcon>
-        <Link href={'/documents'}>
+        <Link href={'/documents/快速开始'}>
           <a className="font-mono">文档</a>
         </Link>
       </div>
@@ -38,7 +40,7 @@ const AppNavbar = (props: Props) => {
         <ActionIcon variant="light" color="blue" className="mx-2">
           <Database />
         </ActionIcon>
-        <Link href={'/documents/sql'}>
+        <Link href={`/examples/sql/binlog${SEP}binlog_stream`}>
           <a className="font-mono">SQL</a>
         </Link>
       </div>
@@ -46,7 +48,7 @@ const AppNavbar = (props: Props) => {
         <ActionIcon color="orange" className="mx-2">
           <Code />
         </ActionIcon>
-        <Link href={'/documents/JSON'}>
+        <Link href={`/examples/json/binlog${SEP}binlog_hive`}>
           <a className="font-mono">JSON</a>
         </Link>
       </div>
