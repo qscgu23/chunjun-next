@@ -56,7 +56,7 @@ const AppNavbar = (props: Props) => {
         <ActionIcon color="red" className="mx-2">
           <Tool />
         </ActionIcon>
-        <Link href={'/documents/faq'}>
+        <Link href={'/faq'}>
           <a className="font-mono">指南</a>
         </Link>
       </div>
