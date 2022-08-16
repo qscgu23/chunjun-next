@@ -14,7 +14,7 @@ import AppHeader from '@/components/AppHeader'
 import AppNavbar from '@/components/AppNavbar'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('light')
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('dark')
   const [opened, setOpened] = useState<boolean>(false)
   const toggleColorScheme = () =>
     setColorScheme(colorScheme === 'dark' ? 'light' : 'dark')

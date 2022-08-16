@@ -27,7 +27,7 @@ const AppHeader = (props: Props) => {
   return (
     <Header
       height={64}
-      className="flex items-center justify-between sticky shadow-md bg--gray-50"
+      className="flex items-center justify-between sticky shadow-md bg--gray-50 2xl:px-[22vw]"
     >
       <Burger
         opened={opened}

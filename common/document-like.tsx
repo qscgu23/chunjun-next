@@ -64,7 +64,7 @@ const DocumentLike = (props: Props) => {
         className={`fixed shadow-xl h-[calc(100vh-64px)] overflow-y-auto left-0 top-[64px] md:w-[256px] hidden md:inline-block ${
           colorScheme === 'light'
             ? 'bg-white scrollbar'
-            : 'bg-gray-800 dark-scrollbar'
+            : 'bg-[#333] dark-scrollbar'
         }`}
       >
         {tree.map((l) => generateNavLink(l, l.label))}
