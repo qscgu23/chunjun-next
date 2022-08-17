@@ -200,7 +200,7 @@ WHERE
 
 查询出来的数据示例：
 
-![image](/doc/LogMiner/LogMiner23.png)
+![image](/chunjun/doc/LogMiner/LogMiner23.png)
 
 # ChunJun如何使用Logminer
 
@@ -247,7 +247,7 @@ ORDER BY
 ```
 查询出来的数据示例：
 
-![image](/doc/LogMiner/LogMiner21.png)
+![image](/chunjun/doc/LogMiner/LogMiner21.png)
 
 
 注意：
@@ -325,7 +325,7 @@ WHERE
 
 ChunJun就是在一个循环里 执行上述sql语句查询数据。 查询日志文件，加载到logminer，开启logminer，读取数据，更新当前最新SCN号，当数据读取完毕，代表本次加载的日志文件加载完了，通过SCN号寻找后续日志文件，重复上述操作
 
-![image](/doc/LogMiner/LogMiner22.png)
+![image](/chunjun/doc/LogMiner/LogMiner22.png)
 
 从 v$logmnr_contents获取到数据之后，ChunJun 使用 net.sf.jsqlparser.parser.CCJSqlParserUtil 来解析 sql_redo 值
 获取到的sql_redo语句格式示例：

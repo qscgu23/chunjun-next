@@ -9,7 +9,6 @@ import {
 } from '@mantine/core'
 import { Sun, Moon, ChevronDown } from 'tabler-icons-react'
 import Image from 'next/image'
-import logo from '@/public/logo-dark.svg'
 import { headerLinks } from '@/config/headerLinks'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
@@ -39,7 +38,7 @@ const AppHeader = (props: Props) => {
           className="flex h-full items-center md:justify-start justify-center md:w-auto w-full"
           onClick={() => router.push('/')}
         >
-          <Image src={logo} height={48} width={48} alt="logo of chunjun" />
+          <Image src="/logo-dark.svg" height={48} width={48} alt="logo of chunjun" />
           <Text className="text-xl capitalize flex items-center font-raleway select-none">
             Chunjun
           </Text>

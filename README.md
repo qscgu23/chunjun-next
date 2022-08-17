@@ -19,3 +19,10 @@
 2. 明亮
 3. 内敛
 4. 留白
+
+### 四. 部署
+
+ * 方法1: 在dtstack/chunjun内clone的项目下，在website目录内安装好npm依赖并执行 npm run deploy。
+
+* 方法2: 在dtstack/chunjun内clone的项目下，在website目录内安装好npm依赖并执行 npm run build，然后将out内的代码提交到chunjun的ph-pages分支
+

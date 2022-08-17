@@ -8,13 +8,13 @@ const nextConfig = {
     sql: '/chunjun-examples/sql',
     json: '/chunjun-examples/json'
   },
-  i18n: {
-    locales: ['en-US', 'zh-Hans'],
-    defaultLocale: 'zh-Hans'
-  },
   images: {
-    domains: ['github.com']
+    loader: 'imgix',
+    domains: ['github.com'],
+    basePath: '/chunjun',
+    path: 'https://dtstack.github.io/chunjun'
   },
+  basePath: '/chunjun',
   distDir: 'build'
 }
 

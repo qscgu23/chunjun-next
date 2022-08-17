@@ -2,14 +2,14 @@
 在github上提交pr是参与ChunJun开源项目的一个重要途径，小伙伴们在使用中的一些功能上feature或者bug都可以向社区提交pr贡献代码，也可以根据已有的issue提供自己的解决方案。下面给大家带来提交一个优秀PR的步骤。
 
 ## 第一步：fork chunjun到自己的github仓库
-![image](/doc/pr/pr1.png)
+![image](/chunjun/doc/pr/pr1.png)
 
 点击fork后就可以在自己仓库中看到以你名字命名的chunjun项目了：
 
-![image](/doc/pr/pr2.png)
+![image](/chunjun/doc/pr/pr2.png)
 
 ## 第二步：clone chunjun到本地IDE
-![image](/doc/pr/pr3.png)
+![image](/chunjun/doc/pr/pr3.png)
 
 ## 第三步：将DTStack/chunjun设置为本地仓库的远程分支upstream
 ```shell
@@ -79,22 +79,22 @@ $ git push origin branch_name
 ## 第五步：提交pr
 以笔者修复kafka写入过程中出现空指针问题为例，经过步骤四笔者已经把代码提交至笔者自己仓库的master分支
 
-![image](/doc/pr/pr4.png)
+![image](/chunjun/doc/pr/pr4.png)
 
 进入chunjun仓库页面，点击Pull Request
 
-![image](/doc/pr/pr5.png)
+![image](/chunjun/doc/pr/pr5.png)
 
-![image](/doc/pr/pr6.png)
+![image](/chunjun/doc/pr/pr6.png)
 
 选择head仓库和base仓库以及相应的分支
 
-![image](/doc/pr/pr7.png)
+![image](/chunjun/doc/pr/pr7.png)
 
 填写pr信息，pr信息应该尽量概括清楚问题的前因后果，如果存在对应issue要附加issue地址，保证问题是可追溯的
 
-![image](/doc/pr/pr8.png)
+![image](/chunjun/doc/pr/pr8.png)
 
-![image](/doc/pr/pr9.png)
+![image](/chunjun/doc/pr/pr9.png)
 
 PR提交成功后需要一段时间代码review，可以耐心等待一下项目维护者review后合入，或者在PR评论区艾特相关人员。
