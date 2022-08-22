@@ -42,5 +42,10 @@ export const headerLinks: headerLink[] = [
       }
     ],
     key: 'examples'
+  },
+  {
+    name: '贡献者',
+    path: '/contributor',
+    key: 'contributor'
   }
 ]
