@@ -38,7 +38,13 @@ const AppHeader = (props: Props) => {
           className="flex h-full items-center md:justify-start justify-center md:w-auto w-full"
           onClick={() => router.push('/')}
         >
-          <Image src="/logo-dark.svg" height={48} width={48} alt="logo of chunjun" />
+          <Image
+            priority
+            src="/logo-dark.svg"
+            height={48}
+            width={48}
+            alt="logo of chunjun"
+          />
           <Text className="text-xl capitalize flex items-center font-raleway select-none">
             Chunjun
           </Text>

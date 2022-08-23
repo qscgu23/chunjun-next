@@ -27,9 +27,11 @@ const Home: NextPage = () => {
         opened={opened}
         onClose={() => setOpened(false)}
         title="请扫描二维码进群"
+        overlayColor="transparent"
       >
         <div className="flex justify-center items-center">
           <Image
+            priority
             src="/assets/img/dingding.jpg"
             alt="钉钉群二维码"
             height={400}
@@ -128,10 +130,11 @@ const Home: NextPage = () => {
             >
               <Card.Section className="text-center">
                 <Image
+                  priority
                   src="/assets/svg/code.svg"
                   height={70}
                   width={70}
-                  alt="Norway"
+                  alt="Banner"
                 />
               </Card.Section>
 
@@ -150,9 +153,10 @@ const Home: NextPage = () => {
               <Card.Section className="text-center">
                 <Image
                   src="/assets/svg/trans.svg"
+                  priority
                   height={70}
                   width={70}
-                  alt="Norway"
+                  alt="Banner"
                 />
               </Card.Section>
 
@@ -172,8 +176,9 @@ const Home: NextPage = () => {
                 <Image
                   src="/assets/svg/sync.svg"
                   height={70}
+                  priority
                   width={70}
-                  alt="Norway"
+                  alt="Banner"
                 />
               </Card.Section>
 
@@ -194,7 +199,8 @@ const Home: NextPage = () => {
                   src="/assets/svg/hcs_sgw.svg"
                   height={70}
                   width={70}
-                  alt="Norway"
+                  priority
+                  alt="Banner"
                 />
               </Card.Section>
 
@@ -215,7 +221,8 @@ const Home: NextPage = () => {
                   src="/assets/svg/datav.svg"
                   height={70}
                   width={70}
-                  alt="Norway"
+                  priority
+                  alt="Banner"
                 />
               </Card.Section>
 
@@ -236,7 +243,8 @@ const Home: NextPage = () => {
                   src="/assets/svg/collect.svg"
                   height={70}
                   width={70}
-                  alt="Norway"
+                  priority
+                  alt="Banner"
                 />
               </Card.Section>
 
@@ -266,7 +274,8 @@ const Home: NextPage = () => {
                   src="/assets/img/flink-png@2x.png"
                   height={80}
                   width={80}
-                  alt="Norway"
+                  priority
+                  alt="Banner"
                 />
               </Card.Section>
               <Text className="text-xl font-bold capitalize text-center">
@@ -301,8 +310,9 @@ const Home: NextPage = () => {
                 <Image
                   src="/assets/svg/docker.svg"
                   height={80}
+                  priority
                   width={80}
-                  alt="Norway"
+                  alt="Banner"
                 />
               </Card.Section>
               <Text className="text-xl font-bold capitalize text-center">
@@ -339,7 +349,8 @@ const Home: NextPage = () => {
                   src="/assets/svg/flex.svg"
                   height={80}
                   width={80}
-                  alt="Norway"
+                  priority
+                  alt="Banner"
                 />
               </Card.Section>
               <Text className="text-xl font-bold capitalize text-center">
@@ -413,6 +424,7 @@ const Home: NextPage = () => {
                 src={com}
                 height={48}
                 width={100}
+                priority
                 alt="company"
                 key={com}
               />
@@ -438,6 +450,7 @@ const Home: NextPage = () => {
               <Image
                 height={120}
                 width={120}
+                priority
                 src={`/assets/img/${
                   colorScheme === 'light' ? 'github' : 'github-dark'
                 }.svg`}
@@ -468,6 +481,7 @@ const Home: NextPage = () => {
                 height={120}
                 width={120}
                 src="/assets/svg/dingding.svg"
+                priority
                 alt="github"
               />
             </Card.Section>

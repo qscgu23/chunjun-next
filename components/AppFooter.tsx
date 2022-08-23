@@ -15,6 +15,7 @@ const AppFooter = () => {
           <Card component="a" className="bg-transparent">
             <Card.Section className="flex justify-center items-center">
               <Image
+                priority
                 src="/assets/img/dt.jpg"
                 height={140}
                 width={140}

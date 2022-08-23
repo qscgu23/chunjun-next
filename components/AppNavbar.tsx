@@ -23,7 +23,13 @@ const AppNavbar = (props: Props) => {
       onClose={changeOpened}
     >
       <div className=" flex items-center mb-4">
-        <Image src={logo} height={36} width={36} alt="logo of chunjun"></Image>
+        <Image
+          priority
+          src={logo}
+          height={36}
+          width={36}
+          alt="logo of chunjun"
+        ></Image>
         <Text className="text-xl font-bold capitalize flex items-center font-mono">
           Chunjun
         </Text>
