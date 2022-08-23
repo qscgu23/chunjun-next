@@ -52,13 +52,13 @@
   h5 {
     font-weight: bold;
   }
-  article{
-    padding:8px;
-    border-radius:8px
+  article {
+    padding: 8px;
+    border-radius: 8px;
   }
-  article.dark{
+  article.dark {
     background: #1f1f1f;
-    color:darkgray
+    color: darkgray;
   }
   article.dark h1 {
     text-transform: capitalize;
@@ -66,6 +66,10 @@
   article.light h1 {
     text-transform: capitalize;
     color: #333;
+  }
+  article.article img {
+    border-radius: 4px;
+    margin: auto;
   }
 }
 
