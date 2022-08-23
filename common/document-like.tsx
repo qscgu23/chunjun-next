@@ -29,11 +29,10 @@ const DocumentLike = (props: Props) => {
         <Link key={t.label} passHref href={`${target}/${href}`}>
           <NavLink
             component="a"
-            color="indigo"
-            variant="light"
+            variant="subtle"
             label={t.label}
             classNames={{
-              body: 'py-2'
+              body: 'py-1'
             }}
             active={router.asPath.includes(encodeURI(t.label))}
           />
@@ -44,10 +43,11 @@ const DocumentLike = (props: Props) => {
         <NavLink
           key={t.label}
           label={t.label}
-          childrenOffset={15}
-          variant="filled"
+
+          childrenOffset={0}
+          variant="subtle"
           classNames={{
-            body: 'py-2'
+            body: 'py-1'
           }}
         >
           {t.children?.map((p) =>
@@ -61,11 +61,10 @@ const DocumentLike = (props: Props) => {
   return (
     <main className="md:pl-[256px] relative">
       <aside
-        className={`fixed shadow-xl h-[calc(100vh-64px)] overflow-y-auto left-0 top-[64px] md:w-[256px] hidden md:inline-block ${
-          colorScheme === 'light'
-            ? 'bg-white scrollbar'
-            : 'bg-[#333] dark-scrollbar'
-        }`}
+        className={`fixed shadow-xl h-[calc(100vh-64px)] overflow-y-auto left-0 top-[64px] md:w-[256px] hidden md:inline-block ${colorScheme === 'light'
+          ? 'bg-white scrollbar'
+          : 'bg-[#333] dark-scrollbar'
+          }`}
       >
         {tree.map((l) => generateNavLink(l, l.label))}
       </aside>

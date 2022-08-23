@@ -52,6 +52,14 @@
   h5 {
     font-weight: bold;
   }
+  article{
+    padding:8px;
+    border-radius:8px
+  }
+  article.dark{
+    background: #1f1f1f;
+    color:darkgray
+  }
   article.dark h1 {
     text-transform: capitalize;
   }
