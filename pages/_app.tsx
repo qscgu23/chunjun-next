@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <title>纯钧</title>
           <meta name="description" content="纯钧Chunjun" />
-          <link rel="shortcut icon" href="/logo-dark.svg" />
+          <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
         <AppShell
           padding={'md'}
@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             main: {
               backgroundColor:
                 theme.colorScheme === 'dark'
-                  ? theme.colors.dark[8]
+                  ? theme.colors.dark[4]
                   : theme.colors.white,
               padding: 0
             }

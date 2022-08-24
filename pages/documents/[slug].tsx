@@ -51,6 +51,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: Params) {
+  console.log(params.slug)
   const post = getPostBySlug(params.slug, ['slug', 'content'])
   const { content, toc } = await markdownToHtml(post.content || '')
 

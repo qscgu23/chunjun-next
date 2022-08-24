@@ -10,7 +10,18 @@ const PostBody = (props: Props) => {
   const { colorScheme } = useMantineColorScheme()
 
   return (
-    <TypographyStylesProvider className="md:col-span-3 p-4 overflow-hidden">
+    <TypographyStylesProvider
+      styles={(theme) => ({
+        main: {
+          backgroundColor:
+            theme.colorScheme === 'dark'
+              ? theme.colors.dark[4]
+              : theme.colors.white,
+          padding: 0
+        }
+      })}
+      className="md:col-span-3 p-4 overflow-hidden"
+    >
       <article
         className={`article ${colorScheme}`}
         dangerouslySetInnerHTML={{ __html: content }}

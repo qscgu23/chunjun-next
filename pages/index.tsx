@@ -1,5 +1,12 @@
 import type { NextPage } from 'next'
-import { Button, useMantineColorScheme, Text, Card, Modal } from '@mantine/core'
+import {
+  Button,
+  useMantineColorScheme,
+  Text,
+  Card,
+  Modal,
+  useMantineTheme
+} from '@mantine/core'
 import { Prism } from '@mantine/prism'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -14,6 +21,7 @@ const SEP = process.env.sep
 const Home: NextPage = () => {
   const { colorScheme } = useMantineColorScheme()
   const [opened, setOpened] = useState<boolean>(false)
+  const theme = useMantineTheme()
 
   useEffect(() => {
     Aos.init({
@@ -27,15 +35,21 @@ const Home: NextPage = () => {
         opened={opened}
         onClose={() => setOpened(false)}
         title="请扫描二维码进群"
-        overlayColor="transparent"
+        overlayColor={
+          theme.colorScheme === 'dark'
+            ? theme.colors.dark[3]
+            : theme.colors.gray[1]
+        }
+        centered
       >
         <div className="flex justify-center items-center">
           <Image
             priority
             src="/assets/img/dingding.jpg"
             alt="钉钉群二维码"
-            height={400}
-            width={300}
+            height={500}
+            width={400}
+            className="mx-auto"
           />
         </div>
       </Modal>
@@ -48,7 +62,7 @@ const Home: NextPage = () => {
           <Text
             data-aos="fade-up"
             data-aos-delay="300"
-            className="capitalize md:text-5xl md:mb-12 mb-2 text-3xl font-roboto"
+            className="capitalize md:text-5xl md:mb-12 mb-2 text-3xl font-nunito"
           >
             <span
               className={`${
@@ -79,7 +93,7 @@ const Home: NextPage = () => {
               rightIcon={<BrandGithub />}
               href="https://github.com/DTStack/chunjun"
               variant="light"
-              className={`text-xl capitalize font-roboto ${
+              className={`text-xl capitalize font-nunito ${
                 colorScheme === 'light' ? 'bg-blue-50' : null
               } mr-2`}
             >
@@ -94,7 +108,7 @@ const Home: NextPage = () => {
                 data-aos="fade-left"
                 data-aos-delay="400"
                 rightIcon={<Affiliate />}
-                className={`text-xl capitalize font-roboto ${
+                className={`text-xl capitalize font-nunito ${
                   colorScheme === 'light' ? 'bg-indigo-50' : null
                 } ml-2`}
               >
@@ -103,22 +117,16 @@ const Home: NextPage = () => {
             </Link>
           </div>
           <div className="md:w-1/2 w-full font-roboto">
-            <Text
-              color={colorScheme === 'light' ? 'gray' : 'blue'}
-              className="text-2xl capitalize mb-4"
-            >
-              get started
-            </Text>
-            <Prism language="bash" className="rounded-full">
+            <Prism language="bash" className="font-nunito">
               git clone https://github.com/DTStack/chunjun.git
             </Prism>
           </div>
         </section>
         <section className="flex flex-col section-padding">
           <div className="flex flex-col items-center justify-center md:mb-16 mb-12">
-            <Text className="text-2xl text-center">核心功能</Text>
+            <Text className="md:text-2xl text-xl text-center">核心功能</Text>
           </div>
-          <div className="grid md:grid-cols-2 grid-cols-1 md:gap-6 gap-4">
+          <div className="grid md:grid-cols-3 md:grid-rows-2 grid-cols-1 md:gap-6 gap-4">
             <Card
               shadow="none"
               radius="md"
@@ -382,7 +390,7 @@ const Home: NextPage = () => {
             <Text
               data-aos="fade-up"
               data-aos-delay="400"
-              className="text-base subpixel-antialiased tracking-tight capitalize md:w-2/3 w-full"
+              className="text-base subpixel-antialiased tracking-tight font-nunito capitalize md:w-2/3 w-full"
             >
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您无需担心Chunjun的上手难度,也无需担忧她在生产环境的表现。纯钧(ChunJun)已将不同的数据库抽象成了
               <span className="underline decoration-yellow-500 decoration-wavy decoration-2">
@@ -445,6 +453,7 @@ const Home: NextPage = () => {
             shadow="none"
             radius="md"
             className="md:mr-24 md:w-64 w-full md:mb-0 mb-6"
+            data-aos="fade-right"
           >
             <Card.Section className="text-center p-4">
               <Image
@@ -470,12 +479,17 @@ const Home: NextPage = () => {
               component="a"
               href="https://github.com/DTStack/chunjun/graphs/contributors"
               radius="md"
-              className="capitalize"
+              className="capitalize font-nunito"
             >
               ok, i got it
             </Button>
           </Card>
-          <Card shadow="none" radius="md" className="md:ml-24 md:w-64 w-full">
+          <Card
+            data-aos="fade-left"
+            shadow="none"
+            radius="md"
+            className="md:ml-24 md:w-64 w-full"
+          >
             <Card.Section className="text-center p-4">
               <Image
                 height={120}

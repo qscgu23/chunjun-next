@@ -45,7 +45,7 @@ const AppHeader = (props: Props) => {
             width={48}
             alt="logo of chunjun"
           />
-          <Text className="text-xl capitalize flex items-center font-raleway select-none">
+          <Text className="text-xl capitalize flex items-center font-nunito select-none">
             Chunjun
           </Text>
         </div>
@@ -54,7 +54,7 @@ const AppHeader = (props: Props) => {
             if (link.path[0] === '/' && !Array.isArray(link.path)) {
               return (
                 <Link href={link.path} key={link.key}>
-                  <a className="font-raleway inline-block md:w-[72px] text-center">
+                  <a className="font-nunito inline-block md:w-[72px] text-center">
                     {link.name}
                   </a>
                 </Link>

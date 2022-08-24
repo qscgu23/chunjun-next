@@ -36,6 +36,10 @@
     font-family: 'Roboto', sans-serif;
   }
 
+  .font-nunito {
+    font-family: 'Nunito', sans-serif;
+  }
+
   article.article pre {
     background-color: #333 !important;
   }
@@ -51,17 +55,24 @@
   h4,
   h5 {
     font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    text-transform: capitalize;
   }
   article {
-    padding: 8px;
+    padding: 8px 20px;
     border-radius: 8px;
   }
   article.dark {
-    background: #1f1f1f;
     color: darkgray;
   }
   article.dark h1 {
     text-transform: capitalize;
+    color: #fff;
+  }
+
+  article.dark h2 {
+    text-transform: capitalize;
+    color: #fff;
   }
   article.light h1 {
     text-transform: capitalize;

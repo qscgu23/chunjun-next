@@ -1,6 +1,13 @@
 import { Drawer, ActionIcon, Text } from '@mantine/core'
 import Link from 'next/link'
-import { Download, Signature, Code, Database, Tool } from 'tabler-icons-react'
+import {
+  Download,
+  Signature,
+  Code,
+  Database,
+  Tool,
+  Heart
+} from 'tabler-icons-react'
 import Image from 'next/image'
 import logo from '@/public/logo-dark.svg'
 
@@ -78,6 +85,14 @@ const AppNavbar = (props: Props) => {
         >
           下载
         </a>
+      </div>
+      <div className="h-[36px] flex items-center p-md cursor-pointer">
+        <ActionIcon color="red" className="mx-2">
+          <Heart />
+        </ActionIcon>
+        <Link href={'/contributor'}>
+          <a className="font-mono">贡献者</a>
+        </Link>
       </div>
     </Drawer>
   )

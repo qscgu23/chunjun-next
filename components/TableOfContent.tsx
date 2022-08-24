@@ -10,8 +10,9 @@ const TableOfContent = (props: Props) => {
   return (
     <aside className="md:inline-block hidden relative">
       <div
-        className={`sticky top-[100px] h-[100vh-64px] overflow-y-auto scrollbar ${colorScheme === 'light' ? 'border-l-gray-200' : 'border-l-gray-600'
-          } border-l-[1px]`}
+        className={`sticky top-[100px] h-[100vh-64px] overflow-y-auto scrollbar ${
+          colorScheme === 'light' ? 'border-l-gray-200' : 'border-l-gray-500'
+        } border-l-[1px]`}
       >
         <ul className="w-full pl-4">
           {toc
@@ -20,10 +21,11 @@ const TableOfContent = (props: Props) => {
               <li key={`${t.id}`} className={`pl-${t.level * 2}`}>
                 <a
                   href={`#${t.text}`}
-                  className={`font-raleway text-sm ${colorScheme === 'light'
+                  className={`font-raleway text-sm ${
+                    colorScheme === 'light'
                       ? 'hover:text-indigo-600'
                       : 'hover:text-indigo-400'
-                    }`}
+                  }`}
                 >
                   {t.text}
                 </a>
