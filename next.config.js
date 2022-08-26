@@ -8,14 +8,6 @@ const nextConfig = {
     sql: '/chunjun-examples/sql',
     json: '/chunjun-examples/json'
   },
-  images: {
-    loader: 'imgix',
-    domains: ['github.com'],
-    basePath: '/chunjun',
-    path: 'https://dtstack.github.io/chunjun'
-  },
-  basePath: '/chunjun',
-  distDir: 'build'
 }
 
 module.exports = nextConfig
