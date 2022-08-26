@@ -453,7 +453,7 @@ const Home: NextPage = () => {
             shadow="none"
             radius="md"
             className="md:mr-24 md:w-64 w-full md:mb-0 mb-6"
-            data-aos="fade-right"
+            data-aos="fade-up"
           >
             <Card.Section className="text-center p-4">
               <Image
@@ -485,7 +485,7 @@ const Home: NextPage = () => {
             </Button>
           </Card>
           <Card
-            data-aos="fade-left"
+            data-aos="fade-up"
             shadow="none"
             radius="md"
             className="md:ml-24 md:w-64 w-full"
